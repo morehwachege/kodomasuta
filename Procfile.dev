@@ -1,2 +1,2 @@
-api: rails s
-web: npm start --port 4000
+web: npm start --prefix client 
+api: rails s --port 3000
