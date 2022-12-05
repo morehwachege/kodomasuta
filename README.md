@@ -42,7 +42,7 @@ foreman start -f Procfile.dev
 
 ### Contributions
 Create a feature or bugfix branch for your changes. For example ```ft-user-card``` for a feature or ```bug-model-validations``` for a bugfix branch. Commit small changes and often. Note that the reviewers may request commit squashes when necessary.
-After commits pushed are ready create a pull request for the feature and notify the review if applicable to merge to the development branch
+After commits pushed are ready create a pull request for the feature and notify the reviewer if applicable to merge to the development branch
 
 ### License
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files in accordance with the **MIT license**
