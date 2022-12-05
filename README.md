@@ -12,11 +12,13 @@ _Get your ultimate candidate_
 
 ### Setup
 ##### Client
+Install dependencies for the client that uses React JavaScript.
 ```bash
 npm install --prefix client
 ```
 
 ##### Server
+Install dependencies for the client that uses Ruby and Rails. Bundle dependencies on terminal.
 
 ```bash
 bundle install 
