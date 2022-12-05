@@ -1,2 +1,2 @@
-web: npm start --port 4000
 api: rails s
+web: npm start --port 4000
