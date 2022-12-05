@@ -1,13 +1,32 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* fallback for old browsers */
+  background: #F5F5F5;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #F5F5F5, #F5F5F5);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #F5F5F5, #F5F5F5)
+}
+.container-login{
+  background-color: #E3E4DB;
+
+}
+/* .container-login h3{
+ padding-left: 3%;
+ padding-top: 3%;
+ color:  #001D4A;
+} */
+.container-login h2{
+  padding-left: 3%;
+  padding-top: 3%;
+  color:  #001D4A;
+ }
+ .container-login p{
+  padding-left: 3%;
+  padding-top: 3%;
+  color:  #001D4A;
+ }
+.login-card{
+  background-color: #cdcdcd;
 }
