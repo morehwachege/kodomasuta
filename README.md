@@ -1,6 +1,10 @@
 # kodomasuta 🥷
 _Get your ultimate candidate_
 
+**Kodomasuta** is a Japanese name for Code Master. It's a code assessment application with tests for various programming languages with an admin page where you can invite candidates for coding challenges. Candidates can also take tests to improve their own skills.
+
+### Requirements
+
 <p align="center"> 
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 
@@ -12,13 +16,8 @@ _Get your ultimate candidate_
 <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white">
  </p>
 
-**Kodomasuta** is a Japanese name for Code Master. It's a code assessment application with tests for various programming languages with an admin page where you can invite candidates for coding challenges. Candidates can also take tests to improve their own skills.
-
-
-### Requirements
-- Ruby
-- Ruby on Rails
-- npm
+- Ruby, Ruby on Rails,  npm
+  
 
 
 ### Setup
