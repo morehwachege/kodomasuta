@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :questions
   resources :assessments
   resources :students
   resources :technical_mentors
