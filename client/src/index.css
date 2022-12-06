@@ -13,16 +13,14 @@ body {
 }
 .logo {
   color :#001d4a;
-  padding-top: 3%;
+  padding-top: 2%;
   padding-left: 3%;
+  text-emphasis-color: #001d4a;
+  font-weight: bold;
+  font-family: monospace;
 
 }
 
-.login-tittle {
-  padding-left: 3%;
-  padding-top: 3%;
-  color: #001d4a;
-}
 .container {
   color: #001d4a;
 }
@@ -37,4 +35,10 @@ body {
   max-height: 600px;
   background-color: #cdcdcd;
   border-radius: 20px;
+}
+p{
+  color: #001d4a;
+  font-size: large;
+  font-weight: 600;
+  font-family: sans;
 }

@@ -16,14 +16,14 @@ const Login = () => {
               <p class="text-dark-50 mb-5">code like never before...</p>
 
               <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Email" />
+                <input type="email" id="typeEmailX" className="form-control form-control-lg bg-dark" placeholder="Email" />
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Password" />
+                <input type="password" id="typePasswordX"  className="form-control  form-control-lg bg-dark" placeholder="Password" />
               </div>
 
-              <p class="small mb-5 pb-lg-2"><a class="text " href="#!">Forgot password?</a></p>
+              <p class="small mb-6 pb-lg-6"><a class="text-dark" href="#!">Forgot password?</a></p>
 
               <button class="btn-login btn-lg px-5 text-white" type="submit">Login</button>
 
