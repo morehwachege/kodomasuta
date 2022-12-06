@@ -1,0 +1,2 @@
+class TechnicalMentorsController < ApplicationController
+end
