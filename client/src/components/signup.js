@@ -2,7 +2,7 @@ import React from "react";
 
 const Signup = () => {
   return (
-    <div className="login-container">
+    <div className="logincontainer">
       <h2 className="logo">Kodomasuta</h2>
       <div class="container py-1 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -35,7 +35,7 @@ const Signup = () => {
                     class="btn-login btn-lg px-5 text-white"
                     type="submit"
                   >
-                    Sign Up    
+                    Sign Up
                   </button>
                 </div>
 
