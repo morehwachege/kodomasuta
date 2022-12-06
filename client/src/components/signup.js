@@ -48,7 +48,7 @@ const Signup = () => {
                 <div>
                   <p class="mb-0">
                     Already have an account?{" "}
-                    <Link to="/">
+                    <Link to="/login">
                       <a href="#!" class="text fw-bold">
                         Login
                       </a>

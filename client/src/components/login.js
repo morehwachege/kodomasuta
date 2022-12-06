@@ -42,23 +42,23 @@ const Login = () => {
                       Forgot password?
                     </a>
                   </p>
-
-                  <button
-                    class="btn-login btn-lg px-5 text-white"
-                    type="submit"
-                  >
-                    Login
-                  </button>
-
+                  <Link to="/dashboard">
+                    <button
+                      class="btn-login btn-lg px-5 text-white"
+                      type="submit"
+                    >
+                      Login
+                    </button>
+                  </Link>
                 </div>
 
                 <div>
                   <p class="mb-0">
                     Don't have an account?{" "}
                     <Link to="/signup">
-                    <a href="#!" class="text fw-bold">
-                      Sign Up
-                    </a>
+                      <a href="" class="text fw-bold">
+                        Sign Up
+                      </a>
                     </Link>
                   </p>
                 </div>
