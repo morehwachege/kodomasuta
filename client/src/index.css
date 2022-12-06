@@ -1,32 +1,40 @@
 body {
   /* fallback for old browsers */
-  background: #F5F5F5;
+  background: #f5f5f5;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, #F5F5F5, #F5F5F5);
+  background: -webkit-linear-gradient(to right, #f5f5f5, #f5f5f5);
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #F5F5F5, #F5F5F5)
+  background: linear-gradient(to right, #f5f5f5, #f5f5f5);
 }
-.container-login{
-  background-color: #E3E4DB;
+.login-container {
+  background-color: #e3e4db;
+}
+.logo {
+  color :#001d4a;
+  padding-top: 3%;
+  padding-left: 3%;
 
 }
-/* .container-login h3{
- padding-left: 3%;
- padding-top: 3%;
- color:  #001D4A;
-} */
-.container-login h2{
+
+.login-tittle {
   padding-left: 3%;
   padding-top: 3%;
-  color:  #001D4A;
- }
- .container-login p{
-  padding-left: 3%;
-  padding-top: 3%;
-  color:  #001D4A;
- }
-.login-card{
+  color: #001d4a;
+}
+.container {
+  color: #001d4a;
+}
+.card {
   background-color: #cdcdcd;
+  /* max-height: 500px; */
+}
+.btn-login {
+  background-color: #0f6bae;
+}
+.card-login {
+  max-height: 600px;
+  background-color: #cdcdcd;
+  border-radius: 20px;
 }
