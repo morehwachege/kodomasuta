@@ -42,3 +42,12 @@ p{
   font-weight: 600;
   font-family: sans;
 }
+.form-floating{
+  position: relative;
+}
+.icon{
+  position: absolute;
+  top: calc(40%);
+  left: 20rem;
+}
+

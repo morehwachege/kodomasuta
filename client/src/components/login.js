@@ -13,23 +13,29 @@ const Login = () => {
                   <h2 class="fw-bold mb-2 ">Login</h2>
                   <p class="text-dark-50 mb-3">code like never before...</p>
 
-                  <div class="form-outline form-white mb-4">
-                    <input
-                      type="email"
-                      id="typeEmailX"
-                      className="form-control form-control-lg bg-dark"
-                      placeholder="Email"
-                    />
-                  </div>
+                  <form>
+                    <div className="form-floating mb-3">
+                      <i class="icon fa-solid fa-envelope"></i>
+                      <input
+                        type="email"
+                        className="form-control bg-dark text-white"
+                        id="floatingName"
+                        placeholder="Email"
+                      ></input>
+                    </div>
+                    <div className="form-floating mb-3">
+                      <i class="icon fa-solid fa-unlock-keyhole"></i>
+                      <i class="icon fa-light fa-unlock-keyhole"></i>
+                      <input
+                        type="password"
+                        className="form-control bg-dark text-white"
+                        id="floatingName"
+                        placeholder="Password"
+                      ></input>
+                    </div>
+                  </form>
 
-                  <div class="form-outline form-white mb-4">
-                    <input
-                      type="password"
-                      id="typePasswordX"
-                      className="form-control form-control-lg bg-dark"
-                      placeholder="Password"
-                    />
-                  </div>
+                  <div class="form-outline form-white mb-4"></div>
                   <p class="small pb-lg-6">
                     <a class="text-" href="#!">
                       Forgot password?
