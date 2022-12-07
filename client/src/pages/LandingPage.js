@@ -87,7 +87,7 @@ function LandingPage() {
                 <section className=" container subscribe d-flex justify-content-center align-items-center flex-nowrap flex-row flex-column mb-5">
                     <h2 className='text-center text-dark my-5'>Subscribe to our newsletter</h2>
                     <form className='d-flex justify-content-center align-items-center flex-nowrap flex-row'>
-                        <input type="email" className="form-control input-subscribe" id="subscribe" placeholder="name@example.com" />
+                        <input type="email" className="form-control input-subscribe" id="subscribe" placeholder="name@example.com" validate/>
                         <button className="btn-subscribe px-5 py-3" type='submit'>Submit</button>
                     </form>
                 </section>
