@@ -1,3 +1,3 @@
 class TechnicalMentorSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :firstname, :lastname, :email
 end
