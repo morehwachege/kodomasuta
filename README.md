@@ -3,10 +3,6 @@
 <em>Get your ultimate candidate</em>
 </p>
 
-**Kodomasuta** is a Japanese name for Code Master. It's a code assessment application with tests for various programming languages with an admin page where you can invite candidates for coding challenges. Candidates can also take tests to improve their own skills.
-
-### Requirements
-
 <p align="center"> 
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 
@@ -17,6 +13,11 @@
 
 <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white">
  </p>
+
+**Kodomasuta** is a Japanese name for Code Master. It's a code assessment application with tests for various programming languages with an admin page where you can invite candidates for coding challenges. Candidates can also take tests to improve their own skills.
+
+### Tech stack
+
 
 - Ruby, Ruby on Rails,  npm
   
@@ -59,7 +60,7 @@ foreman start -f Procfile.dev
 - Methods - *index, show, create, update, delete*
 
 
-Deletion in models such as assessments and questions requires authorization as technical mentor 
+Deletion or updates in models such as assessments and questions requires authorization as technical mentor 
 
 ### Contributions
 Create a feature or bugfix branch for your changes. For example ```ft-user-card``` for a feature or ```bug-model-validations``` for a bugfix branch. Commit small changes and often. Note that the reviewers may request commit squashes when necessary.
