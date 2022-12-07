@@ -35,7 +35,7 @@ const FeedBackForm = ({ onAddItem }) => {
 
                 <textarea className="feedbak" type="text" placeholder="Description" rows="3" aria-label="Full name" name="content" value={content} onChange={(e) => setContent(e.target.value)} required />
 
-                <button className="btn btn-primary" type="submit">
+                <button className="feedback_btn" type="submit">
                     Submit
                 </button>
             </form>
