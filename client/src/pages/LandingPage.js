@@ -55,8 +55,8 @@ function LandingPage() {
                                     <div className='d-flex justify-content-between align-items-center assessment-button'>
                                         <button className='p-3'>Continue preparation</button>
                                         <div className="details">
-                                            <h5>36 questions</h5>
-                                            <p>1h 42mins</p>
+                                            <h5>87 questions</h5>
+                                            <p>3h 30mins</p>
                                         </div>
                                     </div>
                                 </div>
