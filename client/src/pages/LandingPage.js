@@ -1,5 +1,4 @@
-import React from 'react'
-import NavBar from '../components/NavBar';
+import React from 'react';
 import sittingMan from '../assets/images/sittingMan.png';
 import sittingWoman from '../assets/images/Standing.png';
 import codeCard from '../assets/images/codecard.png';
