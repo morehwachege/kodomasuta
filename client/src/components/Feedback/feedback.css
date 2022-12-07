@@ -78,3 +78,16 @@
     color: #f1f1f1;
     border-color: transparent;
 }
+@media screen and (max-width: 1024px){
+    .feedback_container{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+ }
+ 
+@media screen and (max-width: 600px){
+    .feedback_container{
+        width: var(--container-width-sm);
+        margin: 1.2rem;
+    }    
+}
