@@ -1,3 +1,8 @@
+*{
+  font-family: "Poppins" !important;
+  margin: 0;
+  padding: 0;
+}
 body {
   /* fallback for old browsers */
   background: #f5f5f5;
@@ -30,6 +35,9 @@ body {
 .btn-login {
   background-color: #0f6bae;
 }
+button.btn-login:hover{
+  background-color: #001d4a;
+}
 .card-login {
   max-height: 600px;
   background-color: #cdcdcd;
@@ -41,11 +49,14 @@ p {
   font-weight: 600;
   font-family: sans;
 }
-.form-floating {
+/* .form-floating {
   position: relative;
-}
+} */
 .icon {
-  position: absolute;
+  /* position: absolute;
   top: calc(40%);
-  left: 20rem;
+  left: 20rem; */
+}
+.code{
+  font-weight: 400;
 }
