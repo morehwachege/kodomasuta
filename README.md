@@ -42,6 +42,25 @@ bundle install
 foreman start -f Procfile.dev
 ```
 
+## API Endpoints
+#### "/students"
+- Methods - *index, show, create, update, delete*
+
+#### "/technical-mentors"
+- Methods - *index, show, create, update, delete*
+
+#### "/assessments"
+- Methods - *index, show, create, delete*
+
+#### "/questions"
+- Methods - *index, show, create, update, delete*
+
+#### "/feedbacks"
+- Methods - *index, show, create, update, delete*
+
+
+Deletion in models such as assessments and questions requires authorization as technical mentor 
+
 ### Contributions
 Create a feature or bugfix branch for your changes. For example ```ft-user-card``` for a feature or ```bug-model-validations``` for a bugfix branch. Commit small changes and often. Note that the reviewers may request commit squashes when necessary.
 After commits pushed are ready create a pull request for the feature and notify the reviewer if applicable to merge to the development branch
