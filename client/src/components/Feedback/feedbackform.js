@@ -30,6 +30,14 @@ const FeedBackForm = ({ onAddItem }) => {
     return (
         <div className='feedback_container'>
             <form ref={form} onSubmit={handleSubmit} >
+                <h5 className='feed_form'>Feedback Form</h5>
+                <input className="feedbak" type="text" placeholder="title" aria-label="Full name" name="title" value={title} onChange={(e) => setTItle(e.target.value)} required />
+
+                <textarea className="feedbak" type="text" placeholder="Description" rows="3" aria-label="Full name" name="content" value={content} onChange={(e) => setContent(e.target.value)} required />
+
+                <button className="btn btn-primary" type="submit">
+                    Submit
+                </button>
             </form>
         </div>
     )
