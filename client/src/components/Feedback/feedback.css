@@ -46,7 +46,6 @@
     background: transparent;
     border: 2px solid #0f6bae;
     resize: none;
-    /* color: #f1f1f1; */
 }
 
 .feed{
@@ -82,12 +81,13 @@
     .feedback_container{
         grid-template-columns: 1fr;
         gap: 2rem;
+        margin: 1.5rem;
     }
  }
  
 @media screen and (max-width: 600px){
     .feedback_container{
-        width: var(--container-width-sm);
+        width: 90%;
         margin: 1.2rem;
     }    
 }
