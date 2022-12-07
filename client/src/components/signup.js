@@ -37,7 +37,7 @@ const Signup = () => {
                   </form>
                   <Link to="/dashboard">
                   <button
-                    class="btn-login btn-lg px-5 text-white"
+                    class="btn btn-login btn-lg px-5 text-white"
                     type="submit"
                   >
                     Sign Up
