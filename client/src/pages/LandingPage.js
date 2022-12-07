@@ -4,6 +4,7 @@ import sittingMan from '../assets/images/sittingMan.png';
 import sittingWoman from '../assets/images/Standing.png';
 import codeCard from '../assets/images/codecard.png';
 import Footer from '../components/Footer';
+import {Link} from "react-router-dom";
 
 function LandingPage() {
     return (
@@ -18,8 +19,12 @@ function LandingPage() {
                             </div>
                             <div></div>
                             <div className="login-signup d-flex flex-wrap justify-content-between align-items-center">
-                                <button className="signup m-2 px-4 py-2">signup</button>
-                                <button className="login px-4 py-2">login</button>
+                                <Link to="/signup">
+                                    <button className="signup m-2 px-4 py-2">signup</button>
+                                </Link>
+                                <Link to="/login">
+                                    <button className="login px-4 py-2">login</button>
+                                </Link>
                             </div>
 
                         </div>
@@ -79,11 +84,11 @@ function LandingPage() {
                 {/* end second section */}
 
                 {/* section subscribe */}
-                <section className=" container subscribe d-flex justify-content-center align-items-center flex-nowrap flex-row flex-column">
+                <section className=" container subscribe d-flex justify-content-center align-items-center flex-nowrap flex-row flex-column mb-5">
                     <h2 className='text-center text-dark my-5'>Subscribe to our newsletter</h2>
                     <form className='d-flex justify-content-center align-items-center flex-nowrap flex-row'>
-                            <input type="email" className="form-control input-subscribe" id="subscribe" placeholder="name@example.com" />
-                            <button className="btn-subscribe px-5 py-3" type='submit'>Submit</button>
+                        <input type="email" className="form-control input-subscribe" id="subscribe" placeholder="name@example.com" />
+                        <button className="btn-subscribe px-5 py-3" type='submit'>Submit</button>
                     </form>
                 </section>
                 {/* end section subscribe*/}
