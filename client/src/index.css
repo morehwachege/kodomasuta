@@ -61,7 +61,7 @@ p {
   font-weight: 400;
 }
 
-.asscard {
+.assessmentcard {
   display: flex;
   flex-direction: row;
   color: #F5F5F5;
@@ -69,25 +69,25 @@ p {
   margin: 2%;
 }
 
-.left {
+.leftassessmentcard {
   background-color: #0F6BAE;
   padding: 2% 10% 5% 2%;
   border-radius: 10px 0 0 10px;
 }
 
-.right {
+.rightassessmentcard {
   background-color: #121420;
   padding: 2%;
   border-radius: 0 10px 10px 0;
 }
 
-.pcard {
+.assessmentinfo {
   color: #F5F5F5;
   font-size: small;
   font-weight: 100;
 }
 
-.bcard {
+.assessmentbutton {
   background-color: #FFC857;
   color: #121420;
   border-radius: 5px;
@@ -96,16 +96,16 @@ p {
   margin-top: 4%;
 }
 
-.tcard {
+.assessmenttopic {
   white-space: nowrap;
   padding: 2%;
 }
 
-.rcard {
+.assessmentsubtopic {
   font-size: smaller;
 }
 
-.lefttopic {
+.cardtopic {
   color: #F5F5F5;
   font-size: medium;
 }
