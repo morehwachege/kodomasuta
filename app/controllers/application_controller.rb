@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::API
-
+    before_action :authorize
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
 
     def not_found
         render json: {error: 'not_found'}
     end
-    
+
     # Application controller
     def encode_token(payload)
         JWT.encode(payload, 'secret')
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::API
             user_id = decode_token[0]['user_id']
             @user = User.find_by_id(user_id)
         end
-         
+
     end
 
     def authorize

@@ -1,5 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-
   skip_before_action :authorize, only: [:create]
 
   def create
@@ -12,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
 end
 # render the profile
 def profile
-  render json: user
+  render json: @user
 end
 
 private
