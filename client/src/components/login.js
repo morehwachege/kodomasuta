@@ -1,7 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  // const [item, setItem] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
+  const API = "http://localhost:3000";
+
+
+  const submitLogin = (e) => {
+    e.preventDefault();
+    fetch(`${API}/api/v1/login`, {
+      method: "POST",
+      headers: {
+        Accepts: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          email: loginEmail,
+          password: loginPassword,
+        },
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => localStorage.setItem("authentication", data.jwt));
+
+      // setAuth(data.jwt)
+
+
+    // setLoginEmail("");
+    // setLoginPassword("");
+  };
+
   return (
     <div className="logincontainer">
       <h2 className="logo">kodomasuta</h2>
@@ -14,14 +46,16 @@ const Login = () => {
                   <h2 class="fw-bold mb-2 ">Login</h2>
                   <p class="text-dark-50 mb-3 code">code like never before...</p>
 
-                  <form>
+                  <form >
                     <div className="form-floating mb-3 p-0">
                       <i class="icon fa-solid fa-envelope"></i>
                       <input
                         type="email"
+                        name="name"
                         className="form-control bg-dark text-white pl-3"
                         id="floatingName"
-                        placeholder="Email"
+                        value={loginEmail}
+                        onChange={(e) => setLoginEmail(e.target.value)}
                       ></input>
                     </div>
                     <div className="form-floating mb-3">
@@ -31,10 +65,20 @@ const Login = () => {
                         type="password"
                         className="form-control bg-dark text-white p-0"
                         id="floatingName"
+                        name="password"
                         placeholder="Password"
+                         value={loginPassword}
+                         onChange={(e) => setLoginPassword(e.target.value)}
                       ></input>
                     </div>
+
                   </form>
+                  <button
+                      class="btn btn-login btn-lg px-5 text-white"
+                      type="submit" onClick={submitLogin}
+                    >
+                      Login
+                    </button>
 
                   <div class="form-outline form-white mb-4"></div>
                   <p class="small pb-lg-6">
@@ -42,14 +86,9 @@ const Login = () => {
                       Forgot password?
                     </a>
                   </p>
-                  <Link to="/dashboard">
-                    <button
-                      class="btn btn-login btn-lg px-5 text-white"
-                      type="submit"
-                    >
-                      Login
-                    </button>
-                  </Link>
+
+
+
                 </div>
 
                 <div>

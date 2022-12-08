@@ -2,9 +2,22 @@ import React from 'react'
 import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted'
+import { Navigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 function Dashboard() {
-    return (
+    const [authenticated, setauthenticated] = useState(null);
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("token");
+    if (loggedInUser) {
+      setauthenticated(loggedInUser);
+    }
+  }, []);
+
+  if (!authenticated) {
+    return <Navigate replace to="/login" />;
+    } else {
+       return (
         <>
             <div className="container-fluid top-dash-container p-0 bg-light">
                 <div className="container-fluid user-info d-flex justify-content-between align-items-center flex-wrap px-5">
@@ -42,6 +55,6 @@ function Dashboard() {
             <Footer />
         </>
     )
-}
+}}
 
 export default Dashboard

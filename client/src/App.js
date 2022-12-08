@@ -6,8 +6,11 @@ import Feedback from "./components/Feedback/feedback";
 import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AssessmentCard from "./components/assessmentcard";
+import { useState, useEffect } from "react";
 
 function App() {
+  
+
   return (
     <Routes>
       <Route path="/" exact element={<LandingPage />} />
