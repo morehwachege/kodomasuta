@@ -58,6 +58,14 @@ img.feedback_icon{
     font-size: 1.8rem;
     font-weight: 300;
 }
+
+.feed_head{
+    font-size: 1rem;
+    font-weight: 300;
+    color: #0f6bae;
+    margin-bottom: 0.5rem;
+}
+
 .feedback_btn {
     width: max-content;
     display: inline-block;
