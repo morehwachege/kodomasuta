@@ -9,7 +9,7 @@ function AssessmentCard() {
                 <h2 className="assessmenttopic"><b>Java & SpringBoot</b></h2>
                 <button className="assessmentbutton">Continue preparation</button>
             </div>
-            <div className="rightassessmentcard">
+            <div className="rightassessmentcard d-flex justify-content-around flex-column">
                 <h3 className="assessmentsubtopic"><b>The  summary of the assessment</b></h3>
                 <p className="assessmentinfo">Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain.<br/>
                 <br/>
