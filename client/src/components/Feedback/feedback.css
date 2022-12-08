@@ -1,0 +1,93 @@
+.feedback_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-left: 35%;
+    margin-right: 1%;
+    margin-bottom: 2rem;
+}
+
+.feedback_options{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+}
+ 
+.feedback_option{
+    background: #f1f1f1;
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    text-align: center;
+    border: 1px solid transparent;
+}
+ 
+.feedback_option:hover{
+     background: transparent;
+}
+ 
+img.feedback_icon{    
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    width: 30%;
+    height: 6rem;
+    border-radius: 10rem;
+}
+
+.feedbak, form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.feedbak, input, textarea{
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 2px solid #0f6bae;
+    resize: none;
+}
+
+.feed{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+.feed_form{
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+.feedback_btn {
+    width: max-content;
+    display: inline-block;
+    color: var(--color-primary);
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.4rem;
+    border: 1px solid;
+    cursor: pointer;
+    transition: #0f6bae;
+    gap: 1rem;
+    background: #0f6bae;
+    color: #f1f1f1;
+}
+  
+.feedback_btn:hover {
+    background: #0f6bae;
+    color: #f1f1f1;
+    border-color: transparent;
+}
+@media screen and (max-width: 1024px){
+    .feedback_container{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 1.5rem;
+    }
+ }
+ 
+@media screen and (max-width: 600px){
+    .feedback_container{
+        width: 90%;
+        margin: 1.2rem;
+    }    
+}

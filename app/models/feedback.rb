@@ -1,11 +1,17 @@
 class Feedback < ApplicationRecord
-<<<<<<< HEAD
 
     validates :title, presence: true
     validates :content, presence: true
     validates :question_id, presence: true
     
-=======
     belongs_to :question
->>>>>>> ft-assessments
+
+    def feedback_question
+        if question
+            question 
+        else
+            "no feedback for this question"
+        end
+    end
+
 end

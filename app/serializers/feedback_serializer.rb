@@ -1,3 +1,3 @@
 class FeedbackSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :question_id
+  attributes :id, :title, :content, :feedback_question
 end
