@@ -5,32 +5,27 @@ import { useState } from "react";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
-  const API = "http://localhost:3000";
+  // const API = "http://localhost:3000";
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
 
-    fetch(`${API}/api/v1/users`, {
+    fetch("/signup", {
       method: "POST",
       headers: {
-        Accepts: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user: {
-          email,
-          password,
-        },
+        email,
+        password,
       }),
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-      // console.log({data});
+  }
 
-    setEmail("");
-    setPassword("");
-  };
   return (
     <div className="logincontainer">
       <h2 className="logo">kodomasuta</h2>
