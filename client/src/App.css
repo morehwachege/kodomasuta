@@ -150,3 +150,55 @@
 .footer ul{
   list-style: none;
 }
+.top-dash-container{
+  background-color: #0f6bae;
+  width: 100%;
+  height: 250px;
+  min-height: 20vh;
+}
+.dash-welcome{
+  font-size: 20px;
+  font-weight:600;
+  color: #E3E4DB;
+}
+.dash-welcome span{
+  color: #FFC857;
+}
+.hero-left-dash p{
+  text-transform: uppercase
+}
+.user-info{
+  width: 100%;
+  height: 100%;
+}
+.dash-stats p{
+  color:#FFC857;
+  font-size: 20px;
+}
+
+.random-assessments{
+  width: 100%;
+  height: auto;
+  margin-top: -70px;
+}
+.single-dash-assessment{
+  width: 450px;
+  height: 250px;
+  background-color: #E3E4DB;
+  border-radius: 10px;  
+}
+.dash-assessment-button button{
+  border-radius: 3px;
+  border: 0;
+  background-color:#001D4A;
+  color: #E3E4DB;
+}
+.single-dash-assessment h1{
+  font-size: 24px;
+  font-weight: 600;
+}
+.dash-more p{
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 600;
+}
