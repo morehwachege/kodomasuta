@@ -25,7 +25,7 @@ const Signup = () => {
       }),
     })
       .then((res) => res.json())
-      .then((data) =>  localStorage.setItem("authentication", data.jwt));
+      .then((data) => console.log(data));
       // console.log({data});
 
     setEmail("");
