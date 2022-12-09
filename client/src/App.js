@@ -7,6 +7,8 @@ import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AssessmentCard from "./components/assessmentcard";
 import MultipleChoiceCard from "./components/MultipleChoiceCard";
+import QuestionsForm from "./components/QuestionsForm";
+import QuestionPage from "./components/QuestionsPage";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/feedback" element={<Feedback />} />
       <Route path="/multiplechoicecard" element={<MultipleChoiceCard />} />
+      <Route path="questionspage" element={<QuestionPage />} />
+      <Route path="/questionsform" element={<QuestionsForm />} />
+      
     </Routes>
 
   );

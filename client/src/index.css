@@ -111,7 +111,6 @@ p {
 }
 
 /* multiple choice card styling */
-.questions,
 .choices {
     list-style-type: none;
     padding: 0;

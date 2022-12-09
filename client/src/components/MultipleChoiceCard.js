@@ -1,10 +1,10 @@
 import React from "react";
 
-function MultipleChoiceCard() {
+function MultipleChoiceCard({question, choice1, choice2, choice3, correct_answer}) {
 
     return (
             <ol className="questions">
-              <li>stuff stuff more stuff
+              Question <li> {question}
                 <ul className="choices">
                   <li>
                      <label>
@@ -12,7 +12,7 @@ function MultipleChoiceCard() {
                         type={"radio"}
                         id="choice1"
                         className="answer"/>
-                        <span>this</span>
+                        <span>{choice1}</span>
                      </label>
                     </li>
             
@@ -22,7 +22,7 @@ function MultipleChoiceCard() {
                         type={"radio"}
                         id = "choice2"
                         className="answer"/>
-                        <span>maybe this</span>
+                        <span>{choice2}</span>
                      </label>
                     </li>
 
@@ -32,7 +32,7 @@ function MultipleChoiceCard() {
                         type={"radio"}
                         id="choice3"
                         className="answer"/>
-                        <span>no this</span>
+                        <span>{choice3}</span>
                      </label>
                     </li>
 
@@ -42,7 +42,7 @@ function MultipleChoiceCard() {
                         type={"radio"}
                         id="choice4"
                         className="answer"/>
-                        <span>actually this</span>
+                        <span>{correct_answer}</span>
                      </label>
                     </li>
                 </ul>
