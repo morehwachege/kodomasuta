@@ -7,6 +7,7 @@ function Assessments({ assessment }) {
     return (
         <>
             <Navbar />
+            <h4 className='px-4 py-4 fw-bold'>Try something out</h4>
             {
                 assessment.map(singleAssessment => {
                     return (
