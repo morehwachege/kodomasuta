@@ -6,6 +6,7 @@ import Feedback from "./components/Feedback/feedback";
 import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AssessmentCard from "./components/assessmentcard";
+import QuestionFeed from "./components/QuestionFeed/questionfeed";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route path="/assessmentcard" element={<AssessmentCard />} />
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/feedback" element={<Feedback />} />
-
+      <Route path="/questionfeed" element={<QuestionFeed />} />
     </Routes>
 
   );
