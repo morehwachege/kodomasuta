@@ -5,7 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Feedback from "./components/Feedback/feedback";
 import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AssessmentCard from "./components/assessmentcard";
+import Assessments from "./pages/Assessments";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/assessmentcard" element={<AssessmentCard />} />
+      <Route path="/assessments" element={<Assessments />} />
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/feedback" element={<Feedback />} />
 
