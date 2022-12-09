@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-4 sticky-top navigation">
       <div class="container px-lg-2">
         <Link class="navbar-brand" to="/">
-          Kodomasuta
+          kodomasuta
         </Link>
         <button
           class="navbar-toggler"

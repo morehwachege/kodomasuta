@@ -1,11 +1,13 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
-import DashboardTestCompleted from './DashboardTestCompleted'
+import DashboardTestCompleted from './DashboardTestCompleted';
+import NavBar from '../components/NavBar';
 
 function Dashboard() {
     return (
         <>
+            <NavBar />
             <div className="container-fluid top-dash-container p-0 bg-light">
                 <div className="container-fluid user-info d-flex justify-content-between align-items-center flex-wrap px-5">
                     <div className="hero-left-dash">
