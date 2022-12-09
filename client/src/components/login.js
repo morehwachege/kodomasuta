@@ -7,7 +7,6 @@ const Login = () => {
   // const [loginPassword, setLoginPassword] = useState("");
   const navigate = useNavigate();
 
-
   const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -21,9 +20,8 @@ const Login = () => {
       },
       body: JSON.stringify({ email, password }),
     }).then((r) => {
-      // setIsLoading(false);
       if (r.ok) {
-        r.json().then(() => navigate("/dashboard"));
+        r.json(r).then(() => navigate("/dashboard"));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -55,10 +53,12 @@ const Login = () => {
                         value={email}
                         onChange={(e) => setUsername(e.target.value)}
                       ></input>
-                      <h4 className="errorhead text-danger"> {errors.map((error)=>(error))} </h4>
+                      <h4 className="errorhead text-danger">
+                        {" "}
+                        {errors.map((error) => error)}{" "}
+                      </h4>
                     </div>
                     <div className="form-floating mb-3">
-
                       <input
                         type="password"
                         className="form-control bg-dark text-white p-0"
@@ -78,8 +78,8 @@ const Login = () => {
                     Login
                   </button>
 
-                  <div class="form-outline form-white mb-4"></div>
-                  <p class="small pb-lg-6">
+                  <div class="form-outline form-white mb-2"></div>
+                  <p class="small pb-lg-8">
                     <a class="text-" href="#!">
                       Forgot password?
                     </a>
@@ -87,7 +87,7 @@ const Login = () => {
                 </div>
 
                 <div>
-                  <p class="mb-0 code">
+                  <p class="mb-2 code">
                     Don't have an account?{" "}
                     <Link to="/signup">
                       <a href="" class="text fw-bold">
