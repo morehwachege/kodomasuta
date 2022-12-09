@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted';
 import NavBar from '../components/NavBar';
 
-function Dashboard() {
+function Dashboard({ assessment }) {
+    // console.log(assessment);
+    const firstItem = assessment.find(item => item.id === 3)
+    // console.log(firstItem['category'].name)
+    const secondItem = assessment.find(item => item.id === 6)
     return (
         <>
             <NavBar />
@@ -20,8 +24,10 @@ function Dashboard() {
                 </div>
 
                 <div className='container-fluid random-assessments d-flex justify-content-center align-items-center gap-5 flex-wrap flex-row'>
-                    <DashBoardTestCardTop />
-                    <DashBoardTestCardTop />
+                    
+                    <DashBoardTestCardTop  singleAssessment={firstItem}/> 
+                    <DashBoardTestCardTop  singleAssessment={secondItem}/> 
+
                 </div>
 
                 <div className="container dash-more d-flex justify-content-end align-items-center mt-3">
