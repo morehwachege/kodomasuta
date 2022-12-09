@@ -7,6 +7,7 @@ import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Assessments from "./pages/Assessments";
 import { useEffect, useState } from "react"
+import QuestionFeed from "./components/QuestionFeed/questionfeed";
 
 function App() {
   const [assessment, setAssessment] = useState([]);
@@ -30,7 +31,7 @@ function App() {
       <Route path="/dashboard" element={<Dashboard assessment={assessment} />} />
       <Route path="/assessments" element={<Assessments assessment={assessment} />} />
       <Route path="/feedback" element={<Feedback />} />
-
+      <Route path="/questionfeed" element={<QuestionFeed />} />
     </Routes>
 
   );
