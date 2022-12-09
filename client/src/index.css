@@ -117,16 +117,18 @@ p {
 }
 
 .questions {
-  background-color: #0F6BAE;
   color: #f5f5f5;
   padding: 2%;
   border-radius: 5px;
   margin: 2%;
+  border: 1px solid #121420;
+  width: 40%;
 }
 
 .choices li {
     margin-bottom: 5px;
 }
+
 .choices label {
     display: flex;
     align-items: center;
@@ -134,8 +136,49 @@ p {
 .choices label,
 .answer {
     cursor: pointer;
-}
-.answer {
-    margin-right: 8px;
+    background-color: #0f6bae;
     width: auto;
+    margin-right: 8px;
+    margin: 1.5%;
+    padding: 2%;
+    border-radius: 10px;
+}
+/* .answer {
+} */
+
+.qn {
+  background-color: #121420;
+  margin: 3%;
+  padding: 3%;
+  overflow-wrap: break-word;
+  border-radius: 10px;
+}
+
+.questionform {
+  position: relative;
+  background-color: #121420;
+}
+
+.formtitle {
+  color: #FFC857;
+  margin: 2%;
+  font-size: xx-large;
+  text-decoration: underline;
+}
+.formbutton {
+  background-color: #FFC857;
+  margin-bottom: 5%;
+  width: 30%;
+  align-self: center;
+}
+
+.formbox {
+  width: 50%;
+  align-self: center;
+  color: #cdcdcd;
+}
+
+.allquestions {
+  display: flex;
+  flex-wrap: wrap;
 }

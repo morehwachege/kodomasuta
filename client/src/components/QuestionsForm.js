@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function QuestionsForm({questions, setQuestions, feedback}) {
+function QuestionsForm({questions, setQuestions}) {
 
     const [formData, setFormData] = useState({
         question: "",
@@ -47,59 +47,55 @@ function QuestionsForm({questions, setQuestions, feedback}) {
       return (
         <div className="questionform">
           <form onSubmit={handleSubmit}>
-            <h3>New Question</h3>
+            <h3 className="formtitle"><strong> Set New Question</strong></h3>
             <input
-              type="text"
+              type="input-text"
               name="question"
               onChange={handleChange}
               value={formData.question}
               placeholder="create a new question..."
-              className="input-text"
+              className="formbox"
             />
-            <br />
             <input
-              type="text"
+              type="input-text"
               name="choice1"
               onChange={handleChange}
               value={formData.choice1}
               placeholder="Choice 1..."
-              className="input-text"
+              className="formbox"
             />
-            <br />
             <input
-              type="text"
+              type="input-text"
               name="choice2"
               onChange={handleChange}
               value={formData.choice2}
               placeholder="Choice 2 ..."
-              className="input-text"
+              className="formbox"
             />
-            <br /><input
-              type="text"
+            <input
+              type="input-text"
               name="choice3"
               onChange={handleChange}
               value={formData.choice3}
               placeholder="Choice 3 ..."
-              className="input-text"
+              className="formbox"
             />
-            <br /><input
-              type="text"
+            <input
+              type="input-text"
               name="correct_answer"
               onChange={handleChange}
               value={formData.correct_answer}
               placeholder="Choice 4 ..."
-              className="input-text"
+              className="formbox"
             />
-            <br />
             <input
               type="submit"
               name="submit"
               value="Create Question"
-              className="submit"
+              className="formbutton"
             />
           </form>
 
-          {/* <p>{feedback}</p> */}
         </div>
       );
 

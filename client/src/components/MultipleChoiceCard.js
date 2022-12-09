@@ -2,9 +2,10 @@ import React from "react";
 
 function MultipleChoiceCard({question, choice1, choice2, choice3, correct_answer}) {
 
+
     return (
             <ol className="questions">
-              Question <li> {question}
+              <li className="qn"> {question} </li>
                 <ul className="choices">
                   <li>
                      <label>
@@ -46,7 +47,6 @@ function MultipleChoiceCard({question, choice1, choice2, choice3, correct_answer
                      </label>
                     </li>
                 </ul>
-                </li>
             </ol>            
     )
 

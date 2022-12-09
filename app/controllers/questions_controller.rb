@@ -1,9 +1,14 @@
 class QuestionsController < ApplicationController
 
-    def index
-        questions = Question.all
-        render json: questions, status: :ok
+  def index
+    questions = Question.all
+    render json: questions, status: :ok
     end
+
+    # def index
+    #     questions = Question.all
+    #     render json: questions, status: :ok
+    # end
 
     def show
         question = Question.find_by(id: params[:id])
@@ -15,7 +20,7 @@ class QuestionsController < ApplicationController
     end
 
     def create
-        question = Question.create(question_params)
+        question = Question.create!(question_params)
         render json: question, status: :created
     end
 
