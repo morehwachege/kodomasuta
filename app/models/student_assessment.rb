@@ -13,7 +13,8 @@ class StudentAssessment < ApplicationRecord
     def student_assessment
         {
             "title": self.assessment.title,
-            "category": self.assessment.category.name
+            "category": self.assessment.category.name,
+            "number_of_questions": self.assessment.questions.length
         }
     end
 end
