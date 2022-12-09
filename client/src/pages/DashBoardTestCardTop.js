@@ -1,8 +1,6 @@
 import React from 'react'
 
 function DashBoardTestCardTop({ singleAssessment }) {
-    console.log(singleAssessment.category.name)
-    // console.log(singleAssessment.category)
     return (
         <div className='single-dash-assessment d-flex justify-content-between flex-column align-items-start p-3'>
             <h4 className='pt-4'>Prepare by topics</h4>

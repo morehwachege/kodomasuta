@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted';
@@ -6,10 +6,18 @@ import NavBar from '../components/NavBar';
 import { Link } from 'react-router-dom';
 
 function Dashboard({ assessment }) {
-    // console.log(assessment);
-    const firstItem = assessment.find(item => item.id === 3)
-    // console.log(firstItem['category'].name)
-    const secondItem = assessment.find(item => item.id === 6)
+    const [studentAssessments, setStudentAssessments] = useState([]);
+
+    useEffect(() => {
+        fetch("/student_assessments")
+            .then(res => res.json())
+            .then(data => {
+                setStudentAssessments(data)
+            })
+    }, [])
+
+    const user = "Justin Weimann";
+
     return (
         <>
             <NavBar />
@@ -26,8 +34,16 @@ function Dashboard({ assessment }) {
 
                 <div className='container-fluid random-assessments d-flex justify-content-center align-items-center gap-5 flex-wrap flex-row'>
 
-                    <DashBoardTestCardTop singleAssessment={firstItem} />
-                    <DashBoardTestCardTop singleAssessment={secondItem} />
+                    {
+                        assessment.slice(0, 2).map(item => {
+                            return (
+                                <div key={item.id}>
+                                    <DashBoardTestCardTop singleAssessment={item} />
+                                </div>
+                            )
+                        })
+                    }
+
 
                 </div>
 
@@ -43,10 +59,21 @@ function Dashboard({ assessment }) {
                     Assessments Complete
                 </h3>
                 <div className='container d-flex justify-content-center align-items-center flex-wrap gap-3 pb-5'>
-                    <DashboardTestCompleted />
-                    <DashboardTestCompleted />
-                    <DashboardTestCompleted />
-                    <DashboardTestCompleted />
+                    {
+                        studentAssessments.filter(item => item.student_name === user).map(singleStudentAssessments => {
+                            // assessment not taken yet
+                            if (singleStudentAssessments.grade_status !== "assessment not taken yet") {
+                                return (
+                                    <div key={singleStudentAssessments.id}>
+                                        <DashboardTestCompleted singleStudentAssessments={singleStudentAssessments} />
+                                    </div>
+                                )
+                            }
+                            else {
+                                return <p>No assignment taken yet</p>
+                            }
+                        })
+                    }
 
                 </div>
             </section>
