@@ -4,7 +4,7 @@ function AssessmentCard({singleAssessment}) {
 
     return (
         <div className="assessmentcard">
-            <div className="leftassessmentcard">
+            <div className="leftassessmentcard d-flex justify-content-around flex-column">
                 <p className="cardtopic"><strong>Prepare by topics</strong></p>
                 <h2 className="assessmenttopic"><b>{singleAssessment.category.name}</b></h2>
                 <button className="assessmentbutton">Continue preparation</button>

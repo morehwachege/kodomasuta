@@ -10,6 +10,10 @@ class StudentAssessment < ApplicationRecord
         end
     end
 
+    def student_name
+        "#{self.student.firstname} #{self.student.lastname}"
+    end
+
     def student_assessment
         {
             "title": self.assessment.title,
