@@ -10,6 +10,7 @@ const Login = () => {
 
   const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,7 +25,7 @@ const Login = () => {
       if (r.ok) {
         r.json().then(() => navigate("/dashboard"));
       } else {
-        r.json().then((err) => console.log(err));
+        r.json().then((err) => setErrors(err.errors));
       }
     });
   }
@@ -54,10 +55,10 @@ const Login = () => {
                         value={email}
                         onChange={(e) => setUsername(e.target.value)}
                       ></input>
+                      <h4 className="errorhead text-danger"> {errors.map((error)=>(error))} </h4>
                     </div>
                     <div className="form-floating mb-3">
-                      {/* <i class="icon fa-solid fa-unlock-keyhole"></i>
-                      <i class="icon fa-light fa-unlock-keyhole"></i> */}
+
                       <input
                         type="password"
                         className="form-control bg-dark text-white p-0"

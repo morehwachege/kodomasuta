@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
+  const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
+
 
   // const API = "http://localhost:3000";
 
@@ -22,10 +24,15 @@ const Signup = () => {
         password,
       }),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    .then((r) => {
+      // setIsLoading(false);
+      if (r.ok) {
+        r.json().then(() => navigate("/login"), console.log("success"));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
   }
-
   return (
     <div className="logincontainer">
       <h2 className="logo">kodomasuta</h2>
@@ -50,6 +57,8 @@ const Signup = () => {
                         placeholder="Email"
                         onChange={(e) => setEmail(e.target.value)}
                       ></input>
+                    <h4 className="errorhead text-danger"> {errors.map((error)=>(error))} </h4>
+
                     </div>
                     <div className="form-floating mb-3">
                       <i class="icon fa-solid fa-unlock-keyhole"></i>
