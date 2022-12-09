@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted';
 import NavBar from '../components/NavBar';
+import { Link } from 'react-router-dom';
 
 function Dashboard({ assessment }) {
     // console.log(assessment);
@@ -24,16 +25,18 @@ function Dashboard({ assessment }) {
                 </div>
 
                 <div className='container-fluid random-assessments d-flex justify-content-center align-items-center gap-5 flex-wrap flex-row'>
-                    
-                    <DashBoardTestCardTop  singleAssessment={firstItem}/> 
-                    <DashBoardTestCardTop  singleAssessment={secondItem}/> 
+
+                    <DashBoardTestCardTop singleAssessment={firstItem} />
+                    <DashBoardTestCardTop singleAssessment={secondItem} />
 
                 </div>
 
-                <div className="container dash-more d-flex justify-content-end align-items-center mt-3">
-                    <p className='text-center m-0'>more </p>
-                    <i className='bx bx-chevron-right bx-md text-center'></i>
-                </div>
+                <Link to="/assessments">
+                    <div className="container dash-more d-flex justify-content-end align-items-center mt-3">
+                        <p className='text-center m-0'>more </p>
+                        <i className='bx bx-chevron-right bx-md text-center'></i>
+                    </div>
+                </Link>
             </div>
             <section className='container dash-completed mb-3'>
                 <h3 className='text-center py-5'>
