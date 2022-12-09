@@ -110,4 +110,33 @@ p {
   font-size: medium;
 }
 
+/* multiple choice card styling */
+.questions,
+.choices {
+    list-style-type: none;
+    padding: 0;
+}
 
+.questions {
+  background-color: #0F6BAE;
+  color: #f5f5f5;
+  padding: 2%;
+  border-radius: 5px;
+  margin: 2%;
+}
+
+.choices li {
+    margin-bottom: 5px;
+}
+.choices label {
+    display: flex;
+    align-items: center;
+}
+.choices label,
+.answer {
+    cursor: pointer;
+}
+.answer {
+    margin-right: 8px;
+    width: auto;
+}
