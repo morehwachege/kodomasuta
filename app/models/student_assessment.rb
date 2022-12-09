@@ -9,4 +9,11 @@ class StudentAssessment < ApplicationRecord
             "assessment not taken yet"
         end
     end
+
+    def student_assessment
+        {
+            "title": self.assessment.title,
+            "category": self.assessment.category.name
+        }
+    end
 end
