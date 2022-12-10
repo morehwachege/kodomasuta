@@ -26,9 +26,6 @@
 
 # PostgreSQL
 default: &default
-  username: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_USERNAME'] %>
-  # export $(xargs <.env)   to set environment variables from .env file
-  password: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_PASSWORD'] %>
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -43,6 +40,9 @@ development:
   password: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_PASSWORD'] %>
 test:
   <<: *default
+  username: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_USERNAME'] %>
+  # export $(xargs <.env)   to set environment variables from .env file
+  password: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_PASSWORD'] %>
   # Your app name(e.g. my app directory folder name is fotoset-backend)
   database: kodomasuta_test
 production:
