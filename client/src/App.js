@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Assessments from "./pages/Assessments";
 import { useEffect, useState } from "react"
 import QuestionFeed from "./components/QuestionFeed/questionfeed";
+import TestPage from "./pages/TestPage";
 
 function App() {
   const [assessment, setAssessment] = useState([]);
@@ -32,6 +33,7 @@ function App() {
       <Route path="/assessments" element={<Assessments assessment={assessment} />} />
       <Route path="/feedback" element={<Feedback />} />
       <Route path="/questionfeed" element={<QuestionFeed />} />
+      <Route path="/take-test" element={<TestPage />} />
     </Routes>
 
   );
