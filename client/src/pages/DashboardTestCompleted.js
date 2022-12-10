@@ -1,7 +1,7 @@
 import React from 'react'
 
 function DashboardTestCompleted({ singleStudentAssessments }) {
-    console.log("awesome", singleStudentAssessments)
+    // console.log("awesome", singleStudentAssessments)
     const grade = singleStudentAssessments.grade_status;
     const numberOfQuestions = singleStudentAssessments.student_assessment.number_of_questions;
     const examGrade = (grade / numberOfQuestions) * 100

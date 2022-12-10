@@ -255,3 +255,9 @@ nav.navigation{
   width: 150px;
   height: 40px;
 }
+.title-top .left{
+  width: 60%;
+}
+.title-top .width{
+  width: 40%;
+}

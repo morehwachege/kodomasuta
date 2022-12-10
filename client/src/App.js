@@ -33,7 +33,7 @@ function App() {
       <Route path="/assessments" element={<Assessments assessment={assessment} />} />
       <Route path="/feedback" element={<Feedback />} />
       <Route path="/questionfeed" element={<QuestionFeed />} />
-      <Route path="/take-test" element={<TestPage />} />
+      <Route path="/assessments/test/:id" element={<TestPage assessment={assessment}/>} />
     </Routes>
 
   );
