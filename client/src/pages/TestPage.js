@@ -34,8 +34,8 @@ function TestPage({ assessment }) {
 
                 {/* end insert single question here */}
 
-                <div className="container d-flex justify-content-between align-items-center">
-                    <button className="btn btn-warning cool-btn">Previous</button>
+                <div className="container d-flex justify-content-end align-items-center">
+                    {/* <button className="btn btn-warning cool-btn">Previous</button> */}
                     <button className="btn btn-warning cool-btn" onClick={handleNext}>Next</button>
 
                 </div>
