@@ -234,11 +234,11 @@ nav.navigation{
   height: auto;
 }
 .test-choices{
-  width: 700px;
+  width: 100%;
   height: auto;
 }
 .test-single-choice{
-  width: 100%;
+  width: 700px;
   height: 60px;
   color: #E3E4DB;
   background-color: #0f6bae;
