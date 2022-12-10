@@ -4,7 +4,6 @@ import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted';
 import NavBar from '../components/NavBar';
 import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
 
 function Dashboard({ assessment }) {
     const [studentAssessments, setStudentAssessments] = useState([]);

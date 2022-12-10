@@ -12,7 +12,7 @@ function DashBoardTestCardTop({ singleAssessment }) {
                 </Link>
                 <div className="details">
                     <h5>{singleAssessment.questions.length} questions</h5>
-                    <p>3h 30mins</p>
+                    <p>...</p>
                 </div>
             </div>
         </div>
