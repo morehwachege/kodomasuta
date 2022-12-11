@@ -1,1 +1,1 @@
-web: rails server --port $PORT 
+web: rails server -b 0.0.0.0:$PORT 
