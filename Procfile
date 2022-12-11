@@ -1,1 +1,2 @@
-web: rails server -b 0.0.0.0 -p $PORT
+web: npm start --prefix client
+api: rails server -p $PORT
