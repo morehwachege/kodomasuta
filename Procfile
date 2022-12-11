@@ -1,1 +1,1 @@
-web: rails server --port 3000
+web: rails server --port $PORT 
