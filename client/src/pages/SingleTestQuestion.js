@@ -1,7 +1,14 @@
 import React from 'react'
 
-function SingleTestQuestion({ question}) {
+function SingleTestQuestion({ question }) {
+    // console.log(question)
+    const choices = [question.choice1, question.choice2, question.choice3, question.correct_answer]
+    const shuffled = choices
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
 
+    console.log(shuffled)
     return (
         <div className='container'>
             <div className='container test-question bg-dark d-flex align-items-center rounded justify-content-start pt-3'>
@@ -11,18 +18,16 @@ function SingleTestQuestion({ question}) {
                 </p>
             </div>
             <div className='container test-choices m-4 d-flex justify-content-center flex-column align-items-center'>
-                <div className='test-single-choice mt-4 rounded d-flex align-items-center px-3'>
-                    <p className='m-0'>{question.choice1}</p>
-                </div>
-                <div className='test-single-choice mt-4 rounded d-flex align-items-center px-3'>
-                    <p className='m-0'>{question.choice2}</p>
-                </div>
-                <div className='test-single-choice mt-4 rounded d-flex align-items-center px-3'>
-                    <p className='m-0'>{question.choice3}</p>
-                </div>
-                <div className='test-single-choice mt-4 mb-4 rounded d-flex align-items-center px-3'>
-                    <p className='m-0'>{question.correct_answer}</p>
-                </div>
+               
+                {
+                    shuffled.map(choice => {
+                        return (
+                            <div className='test-single-choice mt-4 rounded d-flex align-items-center px-3'>
+                                <p className='m-0 text-light'>{choice}</p>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )

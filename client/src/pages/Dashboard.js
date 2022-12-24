@@ -57,7 +57,7 @@ function Dashboard({ assessment }) {
             </div>
             <section className='container dash-completed mb-3'>
                 <h3 className='text-center py-5'>
-                    Assessments Complete
+                    Assessments Completed
                 </h3>
                 <div className='container d-flex justify-content-center align-items-center flex-wrap gap-3 pb-5'>
                     {
