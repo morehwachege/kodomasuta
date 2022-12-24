@@ -6,7 +6,10 @@ ruby '3.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7'
 # Use postgres as the database for Active Record
-gem 'pg', '~> 1.4.5'
+# gem 'pg', '~> 1.4.5'
+# uncomment above to test with postgres
+gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use Active Model has_secure_password
