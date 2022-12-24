@@ -1,7 +1,7 @@
 import React from 'react'
 
 function SingleTestQuestion({ question }) {
-    // console.log(question)
+    // Schwartzian transform sort algo
     const choices = [question.choice1, question.choice2, question.choice3, question.correct_answer]
     const shuffled = choices
         .map(value => ({ value, sort: Math.random() }))
@@ -13,7 +13,7 @@ function SingleTestQuestion({ question }) {
         <div className='container'>
             <div className='container test-question bg-dark d-flex align-items-center rounded justify-content-start pt-3'>
                 <p className='text-white fs-6'>
-                    <span className='text-warning'>Question (1)</span>
+                    <span className='text-warning'>Question </span>
                     {question.question}
                 </p>
             </div>
