@@ -8,6 +8,7 @@ function QuestionsForm({questions, setQuestions}) {
         choice2: "",
         choice3: "",
         correct_answer: "",
+        assessment_id: ""
 
       });
     
@@ -38,6 +39,7 @@ function QuestionsForm({questions, setQuestions}) {
                 choice2: "",
                 choice3: "",
                 correct_answer: "",
+                assessment_id: ""
             });
             const allQuestions = [...questions,newQuestion]
             setQuestions(allQuestions);
@@ -86,6 +88,14 @@ function QuestionsForm({questions, setQuestions}) {
               onChange={handleChange}
               value={formData.correct_answer}
               placeholder="Choice 4 ..."
+              className="formbox"
+            />
+            <input
+              type="input-text"
+              name="assessment_id"
+              onChange={handleChange}
+              value={formData.assessment_id}
+              placeholder="Assessment ID ...."
               className="formbox"
             />
             <input

@@ -5,11 +5,6 @@ class QuestionsController < ApplicationController
     render json: questions, status: :ok
     end
 
-    # def index
-    #     questions = Question.all
-    #     render json: questions, status: :ok
-    # end
-
     def show
         question = Question.find_by(id: params[:id])
         if question
@@ -27,6 +22,6 @@ class QuestionsController < ApplicationController
       private
 
   def question_params
-    params.permit(:question, :choice1, :choice2, :choice3, :correct_answer, :feedback)
+    params.permit(:question, :choice1, :choice2, :choice3, :correct_answer, :feedback, :assessment_id)
   end
 end
