@@ -207,7 +207,7 @@
 .dash-completed{
   width: 100%;
   height: auto;
-  min-height: 70vh;
+  min-height: 40vh;
   /* background-color: lime; */
 }
 .complete-task{
@@ -224,4 +224,40 @@
 .complete-task button{
   background-color: #0f6bae;
   width: 150px;
+}
+nav.navigation{
+  background-color: #0f6bae !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.test-question{
+  width: 100%;
+  height: auto;
+}
+.test-choices{
+  width: 100%;
+  height: auto;
+}
+.test-single-choice{
+  width: 700px;
+  height: 60px;
+  color: #E3E4DB;
+  background-color: #0f6bae;
+}
+.test-single-choice p{
+  color: #E3E4DB;
+}
+.test-single-choice:hover{
+  background-color: #FFC857;
+  transition: .2s;
+  color: #001D4A !important;
+}
+.cool-btn{
+  width: 150px;
+  height: 40px;
+}
+.title-top .left{
+  width: 60%;
+}
+.title-top .width{
+  width: 40%;
 }

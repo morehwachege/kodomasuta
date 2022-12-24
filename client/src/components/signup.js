@@ -1,7 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
+
+
+  // const API = "http://localhost:3000";
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+    .then((r) => {
+      // setIsLoading(false);
+      if (r.ok) {
+        r.json().then(() => navigate("/login"), console.log("success"));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
   return (
     <div className="logincontainer">
       <h2 className="logo">kodomasuta</h2>
@@ -12,7 +43,9 @@ const Signup = () => {
               <div class="card-body p-5 text-center">
                 <div class="mb-md-5 mt-md-4 pb-5">
                   <h2 class="fw-bold mb-2 ">Signup</h2>
-                  <p class="text-dark-50 mb-5 code">code like never before...</p>
+                  <p class="text-dark-50 mb-5 code">
+                    code like never before...
+                  </p>
 
                   <form>
                     <div className="form-floating mb-3">
@@ -22,7 +55,10 @@ const Signup = () => {
                         className="form-control bg-dark text-white"
                         id="floatingName"
                         placeholder="Email"
+                        onChange={(e) => setEmail(e.target.value)}
                       ></input>
+                    <h4 className="errorhead text-danger"> {errors.map((error)=>(error))} </h4>
+
                     </div>
                     <div className="form-floating mb-3">
                       <i class="icon fa-solid fa-unlock-keyhole"></i>
@@ -32,17 +68,18 @@ const Signup = () => {
                         className="form-control bg-dark text-white"
                         id="floatingName"
                         placeholder="Password"
+                        onChange={(e) => setPassword(e.target.value)}
                       ></input>
                     </div>
                   </form>
-                  <Link to="/dashboard">
+
                   <button
                     class="btn btn-login btn-lg px-5 text-white"
                     type="submit"
+                    onClick={handleSubmit}
                   >
                     Sign Up
                   </button>
-                  </Link>
                 </div>
 
                 <div>

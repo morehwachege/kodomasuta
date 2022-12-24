@@ -4,22 +4,51 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
+# default: &default
+#   adapter: sqlite3
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   timeout: 5000
+
+# development:
+#   <<: *default
+#   database: db/development.sqlite3
+
+# # Warning: The database defined as "test" will be erased and
+# # re-generated from your development database when you run "rake".
+# # Do not set this db to the same as development or production.
+# test:
+#   <<: *default
+#   database: db/test.sqlite3
+
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+
+# PostgreSQL
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  # pool: 5
 
 development:
   <<: *default
-  database: db/development.sqlite3
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+  # Your app name(e.g. my app directory folder name is fotoset-backend)
+  database: kodomasuta_development
+  # you need to put your username and password here
+  username: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_USERNAME'] %>
+  password: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_PASSWORD'] %>
 test:
   <<: *default
-  database: db/test.sqlite3
-
+  username: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_USERNAME'] %>
+  # export $(xargs <.env)   to set environment variables from .env file
+  password: <%= ENV['KODOMASUTA_DEVELOPMENT_DATABASE_PASSWORD'] %>
+  # Your app name(e.g. my app directory folder name is fotoset-backend)
+  database: kodomasuta_test
 production:
   <<: *default
-  database: db/production.sqlite3
+  # Your app name(e.g. my app directory folder name is fotoset-backend)
+  # you don’t need username and password here below
+  database: kodomasuta_production
+  username: kodomasuta
+  password: <%= ENV['KODOMASUTA_DATABASE_PASSWORD'] %>

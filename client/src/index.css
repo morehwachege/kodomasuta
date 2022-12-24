@@ -64,21 +64,34 @@ p {
 .assessmentcard {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items:center;
   color: #F5F5F5;
   border-radius: 50px;
-  margin: 2%;
+  /* margin: 2%; */
+  width: 100%;
+  height: 300px;
+  margin-top:30px;
+  margin-bottom: 30px;
+  /* flex-wrap: wrap; */
 }
 
 .leftassessmentcard {
   background-color: #0F6BAE;
   padding: 2% 10% 5% 2%;
   border-radius: 10px 0 0 10px;
+  width: 30%;
+  height: auto;
+  min-height: 100%;
 }
 
 .rightassessmentcard {
   background-color: #121420;
   padding: 2%;
   border-radius: 0 10px 10px 0;
+  width: 50% !important;
+  height: auto;
+  min-height: 100%;
 }
 
 .assessmentinfo {
@@ -91,18 +104,27 @@ p {
   background-color: #FFC857;
   color: #121420;
   border-radius: 5px;
+  border: 0;
   padding: 5%;
   font-size: small;
   margin-top: 4%;
+  font-size: 16px;
+  font-weight: 500;
 }
+button.assessmentbutton:hover{
+  background-color: #0f6bae;
+  transition: .2s ease;
+  border: 2px solid #FFC857;
+  color: #FFC857;
 
+}
 .assessmenttopic {
   white-space: nowrap;
   padding: 2%;
 }
 
 .assessmentsubtopic {
-  font-size: smaller;
+  font-size: 18px;
 }
 
 .cardtopic {

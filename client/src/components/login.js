@@ -1,7 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
+  // const [loginEmail, setLoginEmail] = useState("");
+  // const [loginPassword, setLoginPassword] = useState("");
+  const navigate = useNavigate();
+
+  const [email, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json(r).then(() => navigate("/dashboard"));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
+
   return (
     <div className="logincontainer">
       <h2 className="logo">kodomasuta</h2>
@@ -12,48 +38,56 @@ const Login = () => {
               <div class="card-body p-5 text-center">
                 <div class="mb-md-5 mt-md-4 pb-5">
                   <h2 class="fw-bold mb-2 ">Login</h2>
-                  <p class="text-dark-50 mb-3 code">code like never before...</p>
+                  <p class="text-dark-50 mb-3 code">
+                    code like never before...
+                  </p>
 
                   <form>
                     <div className="form-floating mb-3 p-0">
                       <i class="icon fa-solid fa-envelope"></i>
                       <input
                         type="email"
+                        name="name"
                         className="form-control bg-dark text-white pl-3"
                         id="floatingName"
-                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setUsername(e.target.value)}
                       ></input>
+                      <h4 className="errorhead text-danger">
+                        {" "}
+                        {errors.map((error) => error)}{" "}
+                      </h4>
                     </div>
                     <div className="form-floating mb-3">
-                      {/* <i class="icon fa-solid fa-unlock-keyhole"></i>
-                      <i class="icon fa-light fa-unlock-keyhole"></i> */}
                       <input
                         type="password"
                         className="form-control bg-dark text-white p-0"
                         id="floatingName"
+                        name="password"
                         placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                       ></input>
                     </div>
                   </form>
+                  <button
+                    class="btn btn-login btn-lg px-5 text-white"
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
+                    Login
+                  </button>
 
-                  <div class="form-outline form-white mb-4"></div>
-                  <p class="small pb-lg-6">
+                  <div class="form-outline form-white mb-2"></div>
+                  <p class="small pb-lg-8">
                     <a class="text-" href="#!">
                       Forgot password?
                     </a>
                   </p>
-                  <Link to="/dashboard">
-                    <button
-                      class="btn btn-login btn-lg px-5 text-white"
-                      type="submit"
-                    >
-                      Login
-                    </button>
-                  </Link>
                 </div>
 
                 <div>
-                  <p class="mb-0 code">
+                  <p class="mb-2 code">
                     Don't have an account?{" "}
                     <Link to="/signup">
                       <a href="" class="text fw-bold">

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container px-lg-2">
-        <Link class="navbar-brand" to="/">
-          Kodomasuta
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-4 sticky-top navigation">
+      <div className="container px-lg-2">
+        <Link className="navbar-brand" to="/dashboard">
+          kodomasuta
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -18,26 +18,26 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li className="nav-item">
               <Link
-                class="nav-link active"
+                className="nav-link active"
                 aria-current="page"
-                to="/assesments"
+                to="/assessments"
               >
                 assesments
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/notifications">
+            <li className="nav-item">
+              <Link className="nav-link" to="/notifications">
                 notifications
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/logout">
+            <li className="nav-item">
+              <Link className="nav-link" to="/logout">
                 Signout
               </Link>
             </li>
