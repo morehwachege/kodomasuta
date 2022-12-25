@@ -1,50 +1,46 @@
 class ApplicationController < ActionController::API
-    include ActionController::Cookies
+    before_action :authorized
 
-    # before_action :authorize
-    # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    SECRET = 'kodom@suta'
 
+    # encode the payload
+    def encode_token(payload)
+        JWT.encode(payload, SECRET)
+    end
 
-    # def not_found
-    #     render json: {error: 'not_found'}
-    # end
+    # get the jwt token from the header request
+    def authentication
+        request.headers['Authorization']
+    end
 
-    # # Application controller
-    # def encode_token(payload)
-    #     JWT.encode(payload, 'secret')
-    # end
+    # decode the jwt token
+    def decoded_token
+        if authentication
+            token = authentication.split(' ')[1]
+            begin
+                JWT.decode(token, SECRET, true, { algorithm: 'HS256' })
+            rescue JWT::DecodeError
+                nil
+            end
+        end
+    end
 
-    # def decode_token
-    #     auth_header = request.headers['Authorization']
-    #     if auth_header
-    #         token = auth_header.split(' ')[1]
-    #         begin
-    #             JWT.decode(token, 'secret',  true, algorithm: 'HS256')
-    #         rescue JWT::DecodeError
-    #             nil
-    #         end
-    #     end
-    # end
-
-    # def authorized_user
-    #     decode_token = decode_token()
-    #     if decode_token
-    #         user_id = decode_token[0]['user_id']
-    #         @user = User.find_by_id(user_id)
-    #     end
-
-    # end
-
-    # def authorize
-    #     render json: {message: 'You have to log in first'}, status: :unauthorized unless
-    #     authorized_user
-    # end
+    # get current user
+    def current_user
+        if decoded_token
+            user_id = decoded_token[0]['user_id']
+            User.find(user_id)
+        end
+    end
 
 
-    # private
+    def logged_in?
+        # current_user.present?
+        !!current_user
+    end
 
-    # def render_unprocessable_entity_response(exception)
-    #     render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
-    # end
+    def authorized
+        render json: { message: "Please log in"}, status: :unauthorized unless logged_in?
+    end
 
 end
