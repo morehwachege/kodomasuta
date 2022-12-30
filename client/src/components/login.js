@@ -51,10 +51,11 @@ const Login = () => {
                       <form>
                         <div className="form-floating mb-3">
                           {/* <i class="icon fa-solid fa-envelope"></i> */}
+                          <label htmlFor="email" style ={{opacity: .2}}>Email</label>
                           <input
                             type="email"
                             name="name"
-                            className="form-control bg-dark text-white py-0 px-3"
+                            className="form-control py-0 px-3"
                             id="floatingName"
                             value={email}
                             onChange={(e) => setUsername(e.target.value)}
@@ -65,9 +66,10 @@ const Login = () => {
                           </h4>
                         </div>
                         <div className="form-floating mb-3">
+                        <label htmlFor="password" style ={{opacity: .2}}>Password</label>
                           <input
                             type="password"
-                            className="form-control bg-dark text-white py-0 px-3 "
+                            className="form-control py-0 px-3 "
                             id="floatingName"
                             name="password"
                             placeholder="Password"

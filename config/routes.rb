@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   resources :feedbacks, only: [:index, :show, :create, :update, :destroy]
   resources :student_assessments, only: [:index, :show, :create, :update, :destroy]
 
-
-
   # userr route
   # namespace :api do
   #   namespace :v1 do
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
   # end
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
-  get 'users', to: 'users#index'
+  get '/users', to: 'users#index'
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
