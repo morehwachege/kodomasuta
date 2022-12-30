@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         <div className='container-fluid footer d-flex justify-content-center align-items-center'>
-            <ul className='d-flex justify-content-around align-items-center'>
+            <ul className='d-flex justify-content-around align-items-center flex-wrap'>
                 <li className="px-2">
                     &copy; 2022 kodomasuta
                 </li>

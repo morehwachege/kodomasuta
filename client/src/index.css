@@ -16,13 +16,31 @@ body {
 .login-container {
   background-color: #e3e4db;
 }
+.main-login{
+  width: 100%;
+  height: 100vh !important;
+  background-color: #e3e4db;
+}
+.login-main{
+  width: 100%;
+  height: auto;
+}
+.card-login {
+  width: 100%;
+  height: auto;
+  /* max-height: 600px; */
+  background-color: #cdcdcd;
+  border-radius: 20px;
+}
 .logo {
   color: #001d4a;
   padding-top: 2%;
   padding-left: 3%;
   text-emphasis-color: #001d4a;
-  font-weight: bold;
   font-family: monospace;
+  font-size: 24px;
+  font-weight: 600;
+  background-color: #e3e4db;
 }
 
 .container {
@@ -38,16 +56,10 @@ body {
 button.btn-login:hover{
   background-color: #001d4a;
 }
-.card-login {
-  max-height: 600px;
-  background-color: #cdcdcd;
-  border-radius: 20px;
-}
 p {
   color: #001d4a;
   font-size: large;
   font-weight: 600;
-  font-family: sans;
 }
 /* .form-floating {
   position: relative;

@@ -22,6 +22,7 @@ function TestPage({ assessment }) {
         else if( count >= questions.length && questions.length > 0){
             // setCount(count => count = 0);
             console.log(testGrade)
+            
             // post grade to database if grade is > 0
             return (<Navigate replace to='/dashboard' />)
         }
