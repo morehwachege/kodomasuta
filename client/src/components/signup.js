@@ -50,7 +50,7 @@ const Signup = () => {
             <div className="row w-100 d-flex justify-content-center align-items-center">
               <div className="col-12 col-md-12 col-lg-6 col-xl-5">
                 <div class="card-login">
-                  <div class="card-body text-center py-5 px-5 mt-3">
+                  <div class="card-body text-center py-2 px-5 mt-3">
                     <div class="mb-md-5 mt-md-4 pb-3">
                       <h2 class="fw-bold mb-2 ">Sign Up</h2>
                       <p class="text-dark-50 mb-3 code">
