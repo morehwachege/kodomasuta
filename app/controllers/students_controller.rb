@@ -5,10 +5,6 @@ class StudentsController < ApplicationController
         render json: students
     end
 
-    def mane
-
-    end
-
     def show
       student = Student.find_by(id: params[:id])
       if student
