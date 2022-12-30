@@ -5,7 +5,7 @@ import DashboardTestCompleted from './DashboardTestCompleted';
 import NavBar from '../components/NavBar';
 import { Link } from 'react-router-dom';
 
-function Dashboard({ assessment }) {
+function Dashboard({ assessment, user }) {
     const [studentAssessments, setStudentAssessments] = useState([]);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ function Dashboard({ assessment }) {
             })
     }, [])
 
-    const user = "Justin Weimann";
+    // const user = "Justin Weimann";
 
 
     return (
@@ -25,7 +25,7 @@ function Dashboard({ assessment }) {
             <div className="container-fluid top-dash-container p-0 bg-light">
                 <div className="container-fluid user-info d-flex justify-content-between align-items-center flex-wrap px-5">
                     <div className="hero-left-dash">
-                        <h3 className='dash-welcome'>Welcome, <span className='dash-user'>User</span></h3>
+                        <h3 className='dash-welcome'>Welcome, <span className='dash-user'>{user ? user.first_name : ""}</span></h3>
                         <p className='pt-3 text-light'>Test Yourself</p>
                     </div>
                     <div className='dash-stats'>

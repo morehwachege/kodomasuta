@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
@@ -23,8 +23,8 @@ const Signup = () => {
       },
       body: JSON.stringify({
         email,
-        firstName,
-        lastName,
+        first_name,
+        last_name,
         password,
       }),
     })
@@ -69,7 +69,7 @@ const Signup = () => {
                                 className="form-control bg-light text-dark py-0 px-3"
                                 id="floatingName"
                                 placeholder="First Name"
-                                value={firstName}
+                                value={first_name}
                                 onChange={(e) => setFirstName(e.target.value)}
                               />
                             </div>
@@ -83,7 +83,7 @@ const Signup = () => {
                                 className="form-control bg-light text-dark py-0 px-3"
                                 id="floatingName"
                                 placeholder="Last Name"
-                                value={lastName}
+                                value={last_name}
                                 onChange={(e) => setLastName(e.target.value)}
                               />
                             </div>
@@ -98,7 +98,7 @@ const Signup = () => {
                             className="form-control bg-light text-dark py-0 px-3"
                             id="floatingName"
                             placeholder="Email"
-                            value={email}
+                            value={email.toLowerCase()}
                             onChange={(e) => setEmail(e.target.value)}
                           />
                           <h4 className="errorhead text-danger">

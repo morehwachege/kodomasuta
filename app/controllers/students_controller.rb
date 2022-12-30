@@ -15,14 +15,14 @@ class StudentsController < ApplicationController
     end
 
     def create
-      student = Student.create(student_params)
+      student = Student.create!(student_params)
       render json: student, status: :created
     end
 
     def update
         student = Student.find_by(id: params[:id])
         if student
-          student.update(student_params)
+          student.update!(student_params)
           render json: student
         else
           render json: { error: "Student not found" }, status: :not_found
@@ -43,7 +43,7 @@ class StudentsController < ApplicationController
 
     private
 
-  def student_params
-    params.permit(:firstname, :lastname, :email)
-  end
+    def student_params
+      params.permit(:firstname, :lastname, :email)
+    end
 end

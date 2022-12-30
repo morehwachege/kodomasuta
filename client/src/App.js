@@ -12,7 +12,7 @@ import TestPage from "./pages/TestPage";
 
 function App() {
   const [assessment, setAssessment] = useState([]);
-
+  const [user, setUser] = useState({});
   useEffect(() => {
     fetch("/assessments")
       .then(res => res.json())
@@ -22,14 +22,18 @@ function App() {
 
   }, [])
 
+  useEffect(() => {
+    console.log(user)
+  }, [user])
+  
 
 
   return (
     <Routes>
       <Route path="/" exact element={<LandingPage />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login setUser={setUser} />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/dashboard" element={<Dashboard assessment={assessment} />} />
+      <Route path="/dashboard" element={<Dashboard assessment={assessment} user={user} />} />
       <Route path="/assessments" element={<Assessments assessment={assessment} />} />
       <Route path="/feedback" element={<Feedback />} />
       <Route path="/questionfeed" element={<QuestionFeed />} />

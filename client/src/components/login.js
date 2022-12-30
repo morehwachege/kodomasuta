@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Login = () => {
+const Login = ({setUser}) => {
   // const [loginEmail, setLoginEmail] = useState("");
   // const [loginPassword, setLoginPassword] = useState("");
   const navigate = useNavigate();
@@ -21,7 +21,11 @@ const Login = () => {
       body: JSON.stringify({ email, password }),
     }).then((r) => {
       if (r.ok) {
-        r.json(r).then(() => navigate("/dashboard"));
+        r.json(r).then((res) => {
+          console.log(res)
+          setUser(() => res)
+          return navigate("/dashboard")
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -32,7 +36,7 @@ const Login = () => {
     <>
       <div className="container-fluid main-login">
         <h2 className="logo">
-          <Link to="/" exact>
+          <Link to="/">
             kodomasuta
           </Link>
         </h2>
@@ -40,24 +44,25 @@ const Login = () => {
           <div className="container-fluid login-main p-0 d-flex justify-content-center align-items-center">
             <div className="row w-100 d-flex justify-content-center align-items-center">
               <div className="col-12 col-md-12 col-lg-6 col-xl-5">
-                <div class="card-login">
-                  <div class="card-body text-center py-5 px-5 mt-3">
-                    <div class="mb-md-5 mt-md-4 pb-3">
-                      <h2 class="fw-bold mb-2 ">Login</h2>
-                      <p class="text-dark-50 mb-3 code">
+                <div className="card-login">
+                  <div className="card-body text-center py-5 px-5 mt-3">
+                    <div className="mb-md-5 mt-md-4 pb-3">
+                      <h2 className="fw-bold mb-2 ">Login</h2>
+                      <p className="text-dark-50 mb-3 code">
                         code like never before...
                       </p>
 
                       <form>
                         <div className="form-floating mb-3">
                           {/* <i class="icon fa-solid fa-envelope"></i> */}
-                          <label htmlFor="email" style ={{opacity: .2}}>Email</label>
+                          <label htmlFor="email" style={{ opacity: .2 }}>Email</label>
                           <input
                             type="email"
                             name="name"
                             className="form-control py-0 px-3"
-                            id="floatingName"
-                            value={email}
+                            id="floatingEmail"
+                            placeholder="Email"
+                            value={email.toLowerCase()}
                             onChange={(e) => setUsername(e.target.value)}
                           />
                           <h4 className="errorhead text-danger">
@@ -66,7 +71,7 @@ const Login = () => {
                           </h4>
                         </div>
                         <div className="form-floating mb-3">
-                        <label htmlFor="password" style ={{opacity: .2}}>Password</label>
+                          <label htmlFor="password" style={{ opacity: .2 }}>Password</label>
                           <input
                             type="password"
                             className="form-control py-0 px-3 "
@@ -79,7 +84,7 @@ const Login = () => {
                         </div>
                         <div>
                           <button
-                            class="btn btn-login px-5 btn-lg text-white"
+                            className="btn btn-login px-5 btn-lg text-white"
                             type="submit"
                             onClick={handleSubmit}
                           >
@@ -88,22 +93,20 @@ const Login = () => {
                         </div>
                       </form>
 
-                      <div class="form-outline form-white mb-2"></div>
-                      <p class="small pb-lg-8">
-                        <a class="text-" href="#!">
+                      <div className="form-outline form-white mb-2"></div>
+                      <p className="small pb-lg-8">
+                        <a className="text-" href="#!">
                           Forgot password?
                         </a>
                       </p>
                     </div>
 
                     <div>
-                      <p class="mb-5 code">
+                      <p className="mb-5 code">
                         Don't have an account?{" "}
-                        <Link to="/signup">
-                          <a href="" class="text fw-bold">
+                          <Link to="/signup">
                             Sign Up
-                          </a>
-                        </Link>
+                          </Link>
                       </p>
                     </div>
                   </div>
