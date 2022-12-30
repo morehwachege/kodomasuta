@@ -1,21 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams} from 'react-router-dom'
 import Footer from '../components/Footer'
 import Navbar from '../components/NavBar'
 import SingleTestQuestion from './SingleTestQuestion'
 
 function TestPage({ assessment }) {
     const { id } = useParams();
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
+    const [testGrade, setTestGrade] = useState(0);
     const test = assessment.map(item => item).filter(item => item.id === Number(id))
     const questions = test[0] ? test[0].questions : "";
 
     function handleNext(e){
         setCount(count => count + 1);
     }
-    useEffect(() => {
-        console.log(count)
-    }, [count])
+    
+    const displayQuestion = () => {
+        if(questions[count]){
+            return <SingleTestQuestion question={questions[count]} setTestGrade={setTestGrade} handleNext={handleNext} testGrade={testGrade}/>;
+        }
+        else if( count >= questions.length && questions.length > 0){
+            // setCount(count => count = 0);
+            console.log(testGrade)
+            // post grade to database if grade is > 0
+            return (<Navigate replace to='/dashboard' />)
+        }
+        else{
+            return <p className='my-5'>no questions available for this assessment</p>;
+        }
+    };
     return (
         <>
             <Navbar />
@@ -30,8 +43,9 @@ function TestPage({ assessment }) {
                     <p className='text-white'>{test[0] ? test[0].description : ""}</p>
                 </div>
                 {/* insert single question here */}
-                {questions[count] ?  <SingleTestQuestion question={questions[count]}/> : <p className='my-5'>no questions available for this assessment</p>}
-
+                {
+                displayQuestion()
+                }
                 {/* end insert single question here */}
 
                 <div className="container d-flex justify-content-end align-items-center">

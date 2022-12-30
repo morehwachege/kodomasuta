@@ -4,7 +4,7 @@ function DashboardTestCompleted({ singleStudentAssessments }) {
     // console.log("awesome", singleStudentAssessments)
     const grade = singleStudentAssessments.grade_status;
     const numberOfQuestions = singleStudentAssessments.student_assessment.number_of_questions;
-    const examGrade = (grade / numberOfQuestions) * 100
+    const examGrade = Math.floor((grade / numberOfQuestions) * 100)
     // console.log(grade, 'boom', numberOfQuestions)
     return (
         <div className='complete-task d-flex justify-content-around flex-column align-items-start px-5 py-3'>

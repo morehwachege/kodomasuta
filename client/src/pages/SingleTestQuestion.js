@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SingleTestQuestion({ question }) {
+function SingleTestQuestion({ question, setTestGrade, handleNext, testGrade}) {
     // Schwartzian transform sort algo
     const choices = [question.choice1, question.choice2, question.choice3, question.correct_answer]
     const shuffled = choices
@@ -8,7 +8,17 @@ function SingleTestQuestion({ question }) {
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
 
-    console.log(shuffled)
+    function handleChoiceClick(e){
+        // clicked choice;
+        const clicked = e.target.textContent;
+        if (clicked === question.correct_answer){
+            setTestGrade(testGrade => testGrade + 1)
+        }
+        // trigger next question click event
+        // console.log(testGrade)
+        handleNext()
+    }
+    // console.log(shuffled)/
     return (
         <div className='container'>
             <div className='container test-question bg-dark d-flex align-items-center rounded justify-content-start pt-3'>
@@ -22,7 +32,7 @@ function SingleTestQuestion({ question }) {
                 {
                     shuffled.map(choice => {
                         return (
-                            <div className='test-single-choice mt-4 rounded d-flex align-items-center px-3'>
+                            <div className='test-single-choice mt-4 rounded d-flex align-items-center px-3' key={choice} onClick={handleChoiceClick}>
                                 <p className='m-0 text-light'>{choice}</p>
                             </div>
                         )

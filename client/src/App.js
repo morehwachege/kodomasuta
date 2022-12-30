@@ -4,7 +4,7 @@ import Signup from "./components/signup";
 import Dashboard from "./pages/Dashboard";
 import Feedback from "./components/Feedback/feedback";
 import LandingPage from "./pages/LandingPage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes , redirect} from "react-router-dom";
 import Assessments from "./pages/Assessments";
 import { useEffect, useState } from "react"
 import QuestionFeed from "./components/QuestionFeed/questionfeed";
