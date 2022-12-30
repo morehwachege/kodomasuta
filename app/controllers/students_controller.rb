@@ -5,13 +5,17 @@ class StudentsController < ApplicationController
         render json: students
     end
 
+    def mane
+
+    end
+
     def show
-        student = Student.find_by(id: params[:id])
-        if student
-          render json: student
-        else
-          render json: { error: "Student not found" }, status: :not_found
-        end
+      student = Student.find_by(id: params[:id])
+      if student
+        render json: student
+      else
+        render json: { error: "Student not found" }, status: :not_found
+      end
     end
 
     def create
@@ -20,24 +24,24 @@ class StudentsController < ApplicationController
     end
 
     def update
-        student = Student.find_by(id: params[:id])
-        if student
-          student.update!(student_params)
-          render json: student
-        else
-          render json: { error: "Student not found" }, status: :not_found
-        end
+      student = Student.find_by(id: params[:id])
+      if student
+        student.update!(student_params)
+        render json: student
+      else
+        render json: { error: "Student not found" }, status: :not_found
       end
+    end
 
     def destroy
-        student = Student.find_by(id: params[:id])
-        if student
-          student.destroy
-          head :no_content
-        else
-          render json: { error: "Student not found" }, status: :not_found
-        end
+      student = Student.find_by(id: params[:id])
+      if student
+        student.destroy
+        head :no_content
+      else
+        render json: { error: "Student not found" }, status: :not_found
       end
+    end
 
       
 
