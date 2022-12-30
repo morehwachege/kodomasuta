@@ -1,7 +1,7 @@
 import React from 'react'
 
 function SingleTestQuestion({ question, setTestGrade, handleNext, testGrade}) {
-    // Schwartzian transform sort algo
+    // Schwartzian transform sort algo to shuffle choices
     const choices = [question.choice1, question.choice2, question.choice3, question.correct_answer]
     const shuffled = choices
         .map(value => ({ value, sort: Math.random() }))
@@ -15,10 +15,8 @@ function SingleTestQuestion({ question, setTestGrade, handleNext, testGrade}) {
             setTestGrade(testGrade => testGrade + 1)
         }
         // trigger next question click event
-        // console.log(testGrade)
         handleNext()
     }
-    // console.log(shuffled)/
     return (
         <div className='container'>
             <div className='container test-question bg-dark d-flex align-items-center rounded justify-content-start pt-3'>

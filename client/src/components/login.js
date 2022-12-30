@@ -31,7 +31,11 @@ const Login = () => {
   return (
     <>
       <div className="container-fluid main-login">
-        <h2 className="logo">kodomasuta</h2>
+        <h2 className="logo">
+          <Link to="/" exact>
+            kodomasuta
+          </Link>
+        </h2>
         <div className="login-container d-flex flex-column align-items-center justify-content-center">
           <div className="container-fluid login-main p-0 d-flex justify-content-center align-items-center">
             <div className="row w-100 d-flex justify-content-center align-items-center">
