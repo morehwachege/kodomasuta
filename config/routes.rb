@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   #   end
   # end
   post '/signup', to: 'users#create'
+  patch '/signup/:id', to: 'users#update'
   get '/me', to: 'users#show'
   get '/users', to: 'users#index'
 

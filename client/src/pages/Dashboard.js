@@ -15,7 +15,13 @@ function Dashboard({ assessment, user }) {
                 setStudentAssessments(data)
             })
     }, [])
-
+    useEffect(() => {
+        fetch("/me")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+    })
     // const user = "Justin Weimann";
 
 

@@ -23,9 +23,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def update 
+    user = User.find_by(id: params[:id])
+    # byebug
+    user.update!(user_params)
+    # byebug
+    render json: user, status: :created
+  end
+
 
   private
   def user_params
-    params.permit(:first_name, :last_name, :email, :password)
+    params.permit(:email, :password, :first_name, :last_name)
   end
 end

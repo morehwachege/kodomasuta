@@ -22,7 +22,6 @@ const Login = ({setUser}) => {
     }).then((r) => {
       if (r.ok) {
         r.json(r).then((res) => {
-          console.log(res)
           setUser(() => res)
           return navigate("/dashboard")
         });
