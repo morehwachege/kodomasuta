@@ -41,7 +41,7 @@ const Signup = () => {
     <>
       <div className="container-fluid main-login">
         <h2 className="logo">
-          <Link to="/" exact>
+          <Link to="/">
             kodomasuta
           </Link>
         </h2>
@@ -49,11 +49,11 @@ const Signup = () => {
           <div className="container-fluid login-main p-0 d-flex justify-content-center align-items-center">
             <div className="row w-100 d-flex justify-content-center align-items-center">
               <div className="col-12 col-md-12 col-lg-6 col-xl-5">
-                <div class="card-login">
-                  <div class="card-body text-center py-2 px-5 mt-3">
-                    <div class="mb-md-5 mt-md-4 pb-3">
-                      <h2 class="fw-bold mb-2 ">Sign Up</h2>
-                      <p class="text-dark-50 mb-3 code">
+                <div className="card-login">
+                  <div className="card-body text-center py-2 px-5 mt-3">
+                    <div className="mb-md-5 mt-md-4 pb-3">
+                      <h2 className="fw-bold mb-2 ">Sign Up</h2>
+                      <p className="text-dark-50 mb-3 code">
                         code like never before...
                       </p>
                       <form onSubmit={handleSubmit}>
@@ -64,10 +64,10 @@ const Signup = () => {
                               {/* <i class="icon fa-solid fa-envelope"></i> */}
                               <input
                                 type="text"
-                                style ={{height: 50+'px'}}
+                                style={{ height: 50 + 'px' }}
                                 name="firstName"
                                 className="form-control bg-light text-dark py-0 px-3"
-                                id="floatingName"
+                                id="firstName"
                                 placeholder="First Name"
                                 value={first_name}
                                 onChange={(e) => setFirstName(e.target.value)}
@@ -78,10 +78,10 @@ const Signup = () => {
                               {/* <i class="icon fa-solid fa-envelope"></i> */}
                               <input
                                 type="text"
-                                style ={{height: 50+'px'}}
+                                style={{ height: 50 + 'px' }}
                                 name="lastName"
                                 className="form-control bg-light text-dark py-0 px-3"
-                                id="floatingName"
+                                id="lastName"
                                 placeholder="Last Name"
                                 value={last_name}
                                 onChange={(e) => setLastName(e.target.value)}
@@ -96,7 +96,7 @@ const Signup = () => {
                             type="email"
                             name="email"
                             className="form-control bg-light text-dark py-0 px-3"
-                            id="floatingName"
+                            id="email"
                             placeholder="Email"
                             value={email.toLowerCase()}
                             onChange={(e) => setEmail(e.target.value)}
@@ -111,7 +111,7 @@ const Signup = () => {
                           <input
                             type="password"
                             className="form-control py-0 px-3 "
-                            id="floatingName"
+                            id="password"
                             name="password"
                             placeholder="Password"
                             value={password}
@@ -120,7 +120,7 @@ const Signup = () => {
                         </div>
                         <div>
                           <button
-                            class="btn btn-login px-5 btn-lg text-white"
+                            className="btn btn-login px-5 btn-lg text-white"
                             type="submit"
                           >
                             Sign Up
@@ -128,21 +128,19 @@ const Signup = () => {
                         </div>
                       </form>
 
-                      <div class="form-outline form-white mb-2"></div>
-                      {/* <p class="small pb-lg-8">
-                        <a class="text-" href="#!">
+                      <div className="form-outline form-white mb-2"></div>
+                      {/* <p className="small pb-lg-8">
+                        <a className="text-" href="#!">
                           Forgot password?
                         </a>
                       </p> */}
                     </div>
 
                     <div>
-                      <p class="mb-5 code">
+                      <p className="mb-5 code">
                         Already have an account? {" "}
-                        <Link to="/login">
-                          <a href="" class="text fw-bold">
-                            Login
-                          </a>
+                        <Link to="/login" className="text fw-bold">
+                          Login
                         </Link>
                       </p>
                     </div>
