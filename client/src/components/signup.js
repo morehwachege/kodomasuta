@@ -56,7 +56,7 @@ const Signup = () => {
                       <p class="text-dark-50 mb-3 code">
                         code like never before...
                       </p>
-                      <form>
+                      <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
                           <div className="d-flex justify-content-center align-items-center flex-nowrap gap-2">
                             <div className="w-50">
@@ -122,7 +122,6 @@ const Signup = () => {
                           <button
                             class="btn btn-login px-5 btn-lg text-white"
                             type="submit"
-                            onClick={handleSubmit}
                           >
                             Sign Up
                           </button>

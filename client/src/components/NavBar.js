@@ -1,8 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
-const Navbar = () => {
+const Navbar = ({onLogout}) => {
+  const navigate = useNavigate()
+  function handleLogoutAction(){
+    fetch("/logout", {
+      method: "DELETE"
+    }).then(() => {
+      return onLogout();
+      // return navigate("/login");
+    })
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-4 sticky-top navigation">
       <div className="container px-lg-2">
@@ -36,10 +46,8 @@ const Navbar = () => {
                 notifications
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
+            <li className="nav-item" onClick={handleLogoutAction} style={{cursor: "pointer"}}>
                 signout
-              </Link>
             </li>
           </ul>
         </div>

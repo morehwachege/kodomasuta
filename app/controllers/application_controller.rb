@@ -1,19 +1,21 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
-
-    # before_action :authorize
+    
+    before_action :authorized
+    def authorized
+        render json: {error: "not authorized"}, status: :unauthorized unless session.include? :user_id
+    end
+    
     # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-
-
+    
     # def not_found
     #     render json: {error: 'not_found'}
     # end
-
+    
     # # Application controller
     # def encode_token(payload)
     #     JWT.encode(payload, 'secret')
     # end
-
     # def decode_token
     #     auth_header = request.headers['Authorization']
     #     if auth_header

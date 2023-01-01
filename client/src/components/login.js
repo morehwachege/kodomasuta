@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Login = ({setUser}) => {
+const Login = ({onLogin}) => {
   // const [loginEmail, setLoginEmail] = useState("");
   // const [loginPassword, setLoginPassword] = useState("");
   const navigate = useNavigate();
@@ -19,14 +19,15 @@ const Login = ({setUser}) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json(r).then((res) => {
-          setUser(() => res)
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          console.log(user)
+          onLogin(user)
           return navigate("/dashboard")
         });
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        res.json().then((err) => setErrors(err.errors));
       }
     });
   }
@@ -51,7 +52,7 @@ const Login = ({setUser}) => {
                         code like never before...
                       </p>
 
-                      <form>
+                      <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
                           {/* <i class="icon fa-solid fa-envelope"></i> */}
                           <label htmlFor="email" style={{ opacity: .2 }}>Email</label>
@@ -85,7 +86,6 @@ const Login = ({setUser}) => {
                           <button
                             className="btn btn-login px-5 btn-lg text-white"
                             type="submit"
-                            onClick={handleSubmit}
                           >
                             Login
                           </button>

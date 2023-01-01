@@ -3,11 +3,11 @@ import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted';
 import NavBar from '../components/NavBar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Dashboard({ assessment, user }) {
+function Dashboard({ assessment, onLogin, user, onLogout }) {
     const [studentAssessments, setStudentAssessments] = useState([]);
-
+    const navigate = useNavigate();
     useEffect(() => {
         fetch("/student_assessments")
             .then(res => res.json())
@@ -15,19 +15,23 @@ function Dashboard({ assessment, user }) {
                 setStudentAssessments(data)
             })
     }, [])
-    useEffect(() => {
-        fetch("/me")
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
-    })
-    // const user = "Justin Weimann";
 
+    useEffect(() => {
+        fetch("/me").then(res => {
+            if (res.ok) {
+                res.json().then(user => {
+                    console.log(user)
+                    return onLogin(user)
+                })
+            }
+        })
+    }, [])
+
+    if(!user) return navigate("/login")
 
     return (
         <>
-            <NavBar />
+            <NavBar onLogout={onLogout} />
             <div className="container-fluid top-dash-container p-0 bg-light">
                 <div className="container-fluid user-info d-flex justify-content-between align-items-center flex-wrap px-5">
                     <div className="hero-left-dash">
@@ -87,7 +91,6 @@ function Dashboard({ assessment, user }) {
             <Footer />
         </>
     )
-    // }
 }
 
 export default Dashboard

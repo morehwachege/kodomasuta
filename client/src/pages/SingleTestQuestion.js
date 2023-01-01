@@ -30,7 +30,7 @@ function SingleTestQuestion({ question, setTestGrade, handleNext, testGrade}) {
                 {
                     shuffled.map(choice => {
                         return (
-                            <div className='test-single-choice mt-4 rounded d-flex align-items-center px-3' key={choice} onClick={handleChoiceClick}>
+                            <div style={{cursor: "pointer"}} className='test-single-choice mt-4 rounded d-flex align-items-center px-3' key={choice} onClick={handleChoiceClick}>
                                 <p className='m-0 text-light'>{choice}</p>
                             </div>
                         )

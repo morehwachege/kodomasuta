@@ -1,5 +1,5 @@
 class AssessmentsController < ApplicationController
-
+    skip_before_action :authorized, only: :index 
 
     def index
         @assessment = Assessment.all 

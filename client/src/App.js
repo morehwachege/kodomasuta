@@ -4,7 +4,7 @@ import Signup from "./components/signup";
 import Dashboard from "./pages/Dashboard";
 import Feedback from "./components/Feedback/feedback";
 import LandingPage from "./pages/LandingPage";
-import { BrowserRouter as Router, Route, Routes , redirect} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, redirect } from "react-router-dom";
 import Assessments from "./pages/Assessments";
 import { useEffect, useState } from "react"
 import QuestionFeed from "./components/QuestionFeed/questionfeed";
@@ -12,7 +12,8 @@ import TestPage from "./pages/TestPage";
 
 function App() {
   const [assessment, setAssessment] = useState([]);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
     fetch("/assessments")
       .then(res => res.json())
@@ -22,22 +23,27 @@ function App() {
 
   }, [])
 
-  useEffect(() => {
-    console.log(user)
-  }, [user])
   
 
+  function handleLogin(user) {
+    setUser(user)
+  }
+  function handleLogout() {
+    setUser(null)
+  }
 
   return (
     <Routes>
-      <Route path="/" exact element={<LandingPage />} />
-      <Route path="/login" element={<Login setUser={setUser} />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/dashboard" element={<Dashboard assessment={assessment} user={user} />} />
-      <Route path="/assessments" element={<Assessments assessment={assessment} />} />
-      <Route path="/feedback" element={<Feedback />} />
-      <Route path="/questionfeed" element={<QuestionFeed />} />
-      <Route path="/assessments/test/:id" element={<TestPage assessment={assessment}/>} />
+      <Route exact path="/" element={<LandingPage />} />
+      <Route exact path="/login" element={<Login onLogin={handleLogin} />} />
+      <Route exact path="/signup" element={<Signup />} />
+      <Route exact path="/dashboard" element={<Dashboard assessment={assessment} user={user} 
+      onLogin={handleLogin} onLogout={handleLogout}
+       />} />
+      <Route exact path="/assessments" element={<Assessments assessment={assessment} />} />
+      <Route exact path="/feedback" element={<Feedback />} />
+      <Route exact path="/questionfeed" element={<QuestionFeed />} />
+      <Route exact path="/assessments/test/:id" element={<TestPage assessment={assessment} />} />
     </Routes>
 
   );
