@@ -46,7 +46,7 @@ const Navbar = ({onLogout}) => {
                 notifications
               </Link>
             </li>
-            <li className="nav-item" onClick={handleLogoutAction} style={{cursor: "pointer"}}>
+            <li className="nav-item d-flex justify-content-center align-items-center text-white" onClick={handleLogoutAction} style={{cursor: "pointer"}}>
                 signout
             </li>
           </ul>
