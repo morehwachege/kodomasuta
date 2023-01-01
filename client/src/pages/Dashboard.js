@@ -3,11 +3,12 @@ import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted';
 import NavBar from '../components/NavBar';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function Dashboard({ assessment, onLogin, user, onLogout }) {
     const [studentAssessments, setStudentAssessments] = useState([]);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
         fetch("/student_assessments")
             .then(res => res.json())
@@ -25,14 +26,7 @@ function Dashboard({ assessment, onLogin, user, onLogout }) {
         })
     }, [])
 
-    useEffect(() => {
-
-        return () => {
-            if (!user) return <Navigate to="/login" />
-        }
-    }, [])
-
-
+    if (!user) return navigate("/login")
     return (
         <>
             <NavBar onLogout={onLogout} />
