@@ -89,6 +89,10 @@ const Signup = () => {
                             </div>
                           </div>
                         </div>
+                        <h4 className="errorhead text-danger">
+                            {" "}
+                            {errors.map((error) => error)}{" "}
+                          </h4>
                         <div className="form-floating mb-3">
                           <label htmlFor="email" style={{ opacity: .2 }}>Email</label>
                           {/* <i class="icon fa-solid fa-envelope"></i> */}
@@ -101,10 +105,7 @@ const Signup = () => {
                             value={email.toLowerCase()}
                             onChange={(e) => setEmail(e.target.value)}
                           />
-                          <h4 className="errorhead text-danger">
-                            {" "}
-                            {errors.map((error) => error)}{" "}
-                          </h4>
+                          
                         </div>
                         <div className="form-floating mb-3">
                           <label htmlFor="password" style={{ opacity: .2 }}>Password</label>
