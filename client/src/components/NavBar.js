@@ -1,18 +1,17 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 
 
 const Navbar = ({onLogout, user}) => {
-  const navigate = useNavigate()
+  const location = useLocation();
   function handleLogoutAction(){
     fetch("/logout", {
       method: "DELETE"
     }).then(() => {
       return onLogout();
-      // return navigate("/login");
     })
   }
-  if (!user) return navigate("/login");
+  if (!user) return <Navigate to="/login" state={{ from: location }} replace />;
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-4 sticky-top navigation">
       <div className="container px-lg-2">
