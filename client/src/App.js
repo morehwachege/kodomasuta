@@ -47,7 +47,7 @@ function App() {
       <Route exact path="/questionfeed" element={<QuestionFeed />} />
       <Route exact path="/assessments/test/:id" element={<TestPage assessment={assessment} />} />
       <Route path="/multiplechoicecard" element={<MultipleChoiceCard />} />
-      <Route path="questionspage" element={<QuestionPage />} />
+      <Route path="/questionspage" element={<QuestionPage />} />
       <Route path="/questionsform" element={<QuestionsForm />} /> 
     </Routes>
 
