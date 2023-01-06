@@ -8,14 +8,9 @@ rescue_from ActiveRecord::RecordInvalid, with: :rescue_from_record_invalid
 
   def create
     user = User.create!(user_params)
-    if user.valid?
-      # no need to create session 
-      session[:user_id] = user.id
-      render json: user, status: :created
-    else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-    end
+    render json: user, status: :created
   end
+  
 # show method get /me
   def show
     user = User.find_by(id: session[:user_id])
