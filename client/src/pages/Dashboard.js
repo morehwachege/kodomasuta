@@ -25,6 +25,15 @@ function Dashboard({ assessment, onLogin, user, onLogout }) {
             }
         })
     }, [])
+    // useEffect(() => {
+    //     // check current user session cookie
+    //     fetch("/me").then(res => {
+    //         if (res.ok) {
+    //             res.json().then(user => onLogin(user))
+    //         }
+    //     })
+    // }, [])
+
 
     if (!user) return navigate("/login")
     return (

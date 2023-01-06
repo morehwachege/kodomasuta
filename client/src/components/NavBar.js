@@ -42,7 +42,7 @@ const Navbar = ({onLogout}) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/notifications">
+              <Link className="nav-link disabled" to="/notifications">
                 notifications
               </Link>
             </li>
