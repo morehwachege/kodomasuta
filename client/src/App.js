@@ -5,6 +5,9 @@ import Dashboard from "./pages/Dashboard";
 import Feedback from "./components/Feedback/feedback";
 import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Route, Routes, redirect } from "react-router-dom";
+import MultipleChoiceCard from "./components/MultipleChoiceCard";
+import QuestionsForm from "./components/QuestionsForm";
+import QuestionPage from "./components/QuestionsPage";
 import Assessments from "./pages/Assessments";
 import { useEffect, useState } from "react"
 import QuestionFeed from "./components/QuestionFeed/questionfeed";
@@ -20,7 +23,6 @@ function App() {
       .then(data => {
         setAssessment(data)
       })
-
   }, [])
 
   
@@ -44,6 +46,9 @@ function App() {
       <Route exact path="/feedback" element={<Feedback />} />
       <Route exact path="/questionfeed" element={<QuestionFeed />} />
       <Route exact path="/assessments/test/:id" element={<TestPage assessment={assessment} />} />
+      <Route path="/multiplechoicecard" element={<MultipleChoiceCard />} />
+      <Route path="/questionspage" element={<QuestionPage />} />
+      <Route path="/questionsform" element={<QuestionsForm />} /> 
     </Routes>
 
   );
