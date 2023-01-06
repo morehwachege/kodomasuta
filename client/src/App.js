@@ -42,10 +42,10 @@ function App() {
       <Route exact path="/dashboard" element={<Dashboard assessment={assessment} user={user} 
       onLogin={handleLogin} onLogout={handleLogout}
        />} />
-      <Route exact path="/assessments" element={<Assessments assessment={assessment} />} />
+      <Route exact path="/assessments" element={<Assessments assessment={assessment} user={user} onLogout={handleLogout} />} />
       <Route exact path="/feedback" element={<Feedback />} />
       <Route exact path="/questionfeed" element={<QuestionFeed />} />
-      <Route exact path="/assessments/test/:id" element={<TestPage assessment={assessment} />} />
+      <Route exact path="/assessments/test/:id" element={<TestPage assessment={assessment} user={user} onLogout={handleLogout} />} />
       <Route path="/multiplechoicecard" element={<MultipleChoiceCard />} />
       <Route path="/questionspage" element={<QuestionPage />} />
       <Route path="/questionsform" element={<QuestionsForm />} /> 

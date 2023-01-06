@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
-const Navbar = ({onLogout}) => {
+const Navbar = ({onLogout, user}) => {
   const navigate = useNavigate()
   function handleLogoutAction(){
     fetch("/logout", {
@@ -12,7 +12,7 @@ const Navbar = ({onLogout}) => {
       // return navigate("/login");
     })
   }
-
+  if (!user) return navigate("/login");
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-4 sticky-top navigation">
       <div className="container px-lg-2">

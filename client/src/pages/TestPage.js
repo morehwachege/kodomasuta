@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/NavBar'
 import SingleTestQuestion from './SingleTestQuestion'
 
-function TestPage({ assessment }) {
+function TestPage({ assessment, onLogout, user }) {
     const { id } = useParams();
     const [count, setCount] = useState(0);
     const [testGrade, setTestGrade] = useState(0);
@@ -32,7 +32,7 @@ function TestPage({ assessment }) {
     };
     return (
         <>
-            <Navbar />
+            <Navbar onLogout={onLogout} user={user} />
             <div className='container fw-600 py-4 d-flex justify-content-between align-items-center title-top'>
                 <p className='fw-normal fs-5 left'>{test[0] ? test[0].title : ""}</p>
                 <p className='fw-normal fs-5 right'>Time fot test: 5mins</p>

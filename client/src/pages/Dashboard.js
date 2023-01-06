@@ -38,7 +38,7 @@ function Dashboard({ assessment, onLogin, user, onLogout }) {
     if (!user) return navigate("/login")
     return (
         <>
-            <NavBar onLogout={onLogout} />
+            <NavBar onLogout={onLogout} user={user} />
             <div className="container-fluid top-dash-container p-0 bg-light">
                 <div className="container-fluid user-info d-flex justify-content-between align-items-center flex-wrap px-5">
                     <div className="hero-left-dash">
