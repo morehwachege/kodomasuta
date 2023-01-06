@@ -22,6 +22,6 @@ class QuestionsController < ApplicationController
       private
 
   def question_params
-    params.permit(:question, :choice1, :choice2, :choice3, :correct_answer, :feedback, :assessment_id)
+    params.permit(:question, :choice1, :choice2, :choice3, :correct_answer, :assessment_id)
   end
 end
