@@ -3,13 +3,13 @@ import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted';
 import NavBar from '../components/NavBar';
-import { Link, useNavigate, Navigate, useLocation, redirect } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Dashboard({ assessment, onLogin, user, onLogout }) {
     const [studentAssessments, setStudentAssessments] = useState([]);
+    const [studentData, setStudentData] = useState(user);
     const navigate = useNavigate();
-    let location = useLocation();
 
     useEffect(() => {
         fetch("/student_assessments")
@@ -28,30 +28,25 @@ function Dashboard({ assessment, onLogin, user, onLogout }) {
         })
     }, [])
 
-    // if (!user) return <Navigate to="/login" replace />;
-    // if (!user) return redirect("/login");
-    // console.log(user.email, "user from dashboard");
-    useEffect(() => {
-        // double user fetch request due to inefficient auth system
-        if( user !== null){
-            fetch("/students/get-student",{
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({"email": user.email})
-            }
-            )
-            .then(res => {
-                if(res.ok){
-                    res.json().then(data => console.log(data, "is student"))
-                }
-            })
-            .catch(err => {
-                console.log(err)
-            })
-        }
-    }, [onLogin]);
+    // useEffect(() => {
+    //     // double user fetch request due to inefficient auth system
+    //     // access current student user information
+    //     if( user !== null){
+    //         fetch("/students/get-student",{
+    //             method: 'POST',
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+    //             body: JSON.stringify({"email": user.email})
+    //         }
+    //         )
+    //         .then(res => {
+    //             if(res.ok){
+    //                 res.json().then(data => setStudentData(data))
+    //             }
+    //         })
+    //     }
+    // }, [onLogin]);
 
     if (!user) return navigate("/login");
 
@@ -97,8 +92,9 @@ function Dashboard({ assessment, onLogin, user, onLogout }) {
                 </h3>
                 <div className='container d-flex justify-content-center align-items-center flex-wrap gap-3 pb-5'>
                     {
-                        studentAssessments.filter(item => item.student_name === user).map(singleStudentAssessments => {
+                        studentAssessments.filter(item => item.student_name === `${user.firstname} ${user.lastname}`).map(singleStudentAssessments => {
                             // assessment not taken yet
+                            
                             if (singleStudentAssessments.grade_status !== "assessment not taken yet") {
                                 return (
                                     <div key={singleStudentAssessments.id}>
