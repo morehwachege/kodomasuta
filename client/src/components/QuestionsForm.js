@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import AssessmentId from "./assesstitle";
 
 function QuestionsForm({questions, setQuestions}) {
 
@@ -95,9 +96,10 @@ function QuestionsForm({questions, setQuestions}) {
               name="assessment_id"
               onChange={handleChange}
               value={formData.assessment_id}
-              placeholder="Assessment ID ...."
+              placeholder="Put assessment title number here ...."
               className="formbox"
             />
+                        <AssessmentId/>
             <input
               type="submit"
               name="submit"
