@@ -2,8 +2,8 @@ import React from "react";
 import { Link, Navigate, useLocation } from "react-router-dom";
 
 
-const Navbar = ({onLogout, user}) => {
-  const location = useLocation();
+const Navbar = ({onLogout, user, onLogin}) => {
+  let location = useLocation();
   function handleLogoutAction(){
     fetch("/logout", {
       method: "DELETE"

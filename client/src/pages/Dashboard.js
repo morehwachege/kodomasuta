@@ -3,12 +3,14 @@ import Footer from '../components/Footer'
 import DashBoardTestCardTop from './DashBoardTestCardTop'
 import DashboardTestCompleted from './DashboardTestCompleted';
 import NavBar from '../components/NavBar';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate, useLocation, redirect } from 'react-router-dom';
 
 
 function Dashboard({ assessment, onLogin, user, onLogout }) {
     const [studentAssessments, setStudentAssessments] = useState([]);
     const navigate = useNavigate();
+    let location = useLocation();
+
     useEffect(() => {
         fetch("/student_assessments")
             .then(res => res.json())
@@ -25,17 +27,34 @@ function Dashboard({ assessment, onLogin, user, onLogout }) {
             }
         })
     }, [])
-    // useEffect(() => {
-    //     // check current user session cookie
-    //     fetch("/me").then(res => {
-    //         if (res.ok) {
-    //             res.json().then(user => onLogin(user))
-    //         }
-    //     })
-    // }, [])
 
+    // if (!user) return <Navigate to="/login" replace />;
+    // if (!user) return redirect("/login");
+    // console.log(user.email, "user from dashboard");
+    useEffect(() => {
+        // double user fetch request due to inefficient auth system
+        if( user !== null){
+            fetch("/students/get-student",{
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({"email": user.email})
+            }
+            )
+            .then(res => {
+                if(res.ok){
+                    res.json().then(data => console.log(data, "is student"))
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    }, [onLogin]);
 
-    if (!user) return navigate("/login")
+    if (!user) return navigate("/login");
+
     return (
         <>
             <NavBar onLogout={onLogout} user={user} />
