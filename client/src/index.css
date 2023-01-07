@@ -221,3 +221,28 @@ button.assessmentbutton:hover{
   flex-wrap: wrap;
   margin-left: 10%;
 }
+
+.assessmenttitles {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+select {
+  margin: 3%;
+  width: 50%;
+  align-self: center;
+  color: #001d4a;
+  padding: 2%;
+  background-color: #0f6bae;
+  border-radius: 5px;
+}
+
+.assesslabel {
+  color: #cdcdcd;
+}
+
+option {
+  margin: 5%;
+  padding: 4%;
+  color: #001d4a;
+}

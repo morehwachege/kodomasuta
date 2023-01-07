@@ -12,6 +12,7 @@ import Assessments from "./pages/Assessments";
 import { useEffect, useState } from "react"
 import QuestionFeed from "./components/QuestionFeed/questionfeed";
 import TestPage from "./pages/TestPage";
+import AssessmentId from "./components/assesstitle";
 
 function App() {
   const [assessment, setAssessment] = useState([]);
@@ -49,6 +50,8 @@ function App() {
       <Route path="/multiplechoicecard" element={<MultipleChoiceCard />} />
       <Route path="/questionspage" element={<QuestionPage />} />
       <Route path="/questionsform" element={<QuestionsForm />} /> 
+      <Route path="/assessmentid" element={<AssessmentId />} /> 
+
     </Routes>
 
   );
