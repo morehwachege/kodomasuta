@@ -15,6 +15,7 @@ import TestPage from "./pages/TestPage";
 
 function App() {
   const [assessment, setAssessment] = useState([]);
+  const [studentAssessments, setStudentAssessments] = useState([]);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -25,7 +26,14 @@ function App() {
       })
   }, [])
 
-  
+  useEffect(() => {
+    fetch("/student_assessments")
+      .then(res => res.json())
+      .then(data => {
+        setStudentAssessments(data)
+      })
+  }, [])
+
 
   function handleLogin(user) {
     setUser(user)
@@ -39,16 +47,16 @@ function App() {
       <Route exact path="/" element={<LandingPage />} />
       <Route exact path="/login" element={<Login onLogin={handleLogin} />} />
       <Route exact path="/signup" element={<Signup />} />
-      <Route exact path="/dashboard" element={<Dashboard assessment={assessment} user={user} 
-      onLogin={handleLogin} onLogout={handleLogout}
-       />} />
+      <Route exact path="/dashboard" element={<Dashboard assessment={assessment} user={user}
+        onLogin={handleLogin} onLogout={handleLogout} studentAssessments={studentAssessments}
+      />} />
       <Route exact path="/assessments" element={<Assessments assessment={assessment} user={user} onLogout={handleLogout} />} />
       <Route exact path="/feedback" element={<Feedback />} />
       <Route exact path="/questionfeed" element={<QuestionFeed />} />
-      <Route exact path="/assessments/test/:id" element={<TestPage assessment={assessment} user={user} onLogout={handleLogout} />} />
+      <Route exact path="/assessments/test/:id" element={<TestPage assessment={assessment} user={user} onLogout={handleLogout} studentAssessments={studentAssessments} />} />
       <Route path="/multiplechoicecard" element={<MultipleChoiceCard />} />
       <Route path="/questionspage" element={<QuestionPage />} />
-      <Route path="/questionsform" element={<QuestionsForm />} /> 
+      <Route path="/questionsform" element={<QuestionsForm />} />
     </Routes>
 
   );

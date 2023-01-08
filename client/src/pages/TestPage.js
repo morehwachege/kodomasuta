@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/NavBar'
 import SingleTestQuestion from './SingleTestQuestion'
 
-function TestPage({ assessment, onLogout, user }) {
+function TestPage({ assessment, onLogout, user, studentAssessments}) {
     const { id } = useParams();
     const [count, setCount] = useState(0);
     const [testGrade, setTestGrade] = useState(0);
@@ -22,7 +22,12 @@ function TestPage({ assessment, onLogout, user }) {
         else if( count >= questions.length && questions.length > 0){
             // setCount(count => count = 0);
             console.log(testGrade)
-            
+            const username =`${user.first_name} ${user.last_name}`;
+            // console.log(test)
+            console.log(username, "username")
+            const moreh = studentAssessments.filter(item => item.student_name === username && item.student_assessment.title === test[0].title)
+            console.log(moreh)
+
             // post grade to database if grade is > 0
             return (<Navigate replace to='/dashboard' />)
         }

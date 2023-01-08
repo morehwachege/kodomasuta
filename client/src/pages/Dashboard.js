@@ -6,18 +6,10 @@ import NavBar from '../components/NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-function Dashboard({ assessment, onLogin, user, onLogout }) {
-    const [studentAssessments, setStudentAssessments] = useState([]);
+function Dashboard({ assessment, onLogin, user, onLogout, studentAssessments}) {
     const [studentData, setStudentData] = useState(user);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        fetch("/student_assessments")
-            .then(res => res.json())
-            .then(data => {
-                setStudentAssessments(data)
-            })
-    }, [])
 
     useEffect(() => {
         // check current user session cookie
