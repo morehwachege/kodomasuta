@@ -6,16 +6,10 @@ import NavBar from '../components/NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-function Dashboard({ assessment, onLogin, user, onLogout }) {
-    const [studentAssessments, setStudentAssessments] = useState([]);
+function Dashboard({ assessment, onLogin, user, onLogout, studentAssessments}) {
+    const [studentData, setStudentData] = useState(user);
     const navigate = useNavigate();
-    useEffect(() => {
-        fetch("/student_assessments")
-            .then(res => res.json())
-            .then(data => {
-                setStudentAssessments(data)
-            })
-    }, [])
+
 
     useEffect(() => {
         // check current user session cookie
@@ -25,20 +19,32 @@ function Dashboard({ assessment, onLogin, user, onLogout }) {
             }
         })
     }, [])
+
     // useEffect(() => {
-    //     // check current user session cookie
-    //     fetch("/me").then(res => {
-    //         if (res.ok) {
-    //             res.json().then(user => onLogin(user))
+    //     // double user fetch request due to inefficient auth system
+    //     // access current student user information
+    //     if( user !== null){
+    //         fetch("/students/get-student",{
+    //             method: 'POST',
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+    //             body: JSON.stringify({"email": user.email})
     //         }
-    //     })
-    // }, [])
+    //         )
+    //         .then(res => {
+    //             if(res.ok){
+    //                 res.json().then(data => setStudentData(data))
+    //             }
+    //         })
+    //     }
+    // }, [onLogin]);
 
+    if (!user) return navigate("/login");
 
-    if (!user) return navigate("/login")
     return (
         <>
-            <NavBar onLogout={onLogout} />
+            <NavBar onLogout={onLogout} user={user} />
             <div className="container-fluid top-dash-container p-0 bg-light">
                 <div className="container-fluid user-info d-flex justify-content-between align-items-center flex-wrap px-5">
                     <div className="hero-left-dash">
@@ -78,8 +84,9 @@ function Dashboard({ assessment, onLogin, user, onLogout }) {
                 </h3>
                 <div className='container d-flex justify-content-center align-items-center flex-wrap gap-3 pb-5'>
                     {
-                        studentAssessments.filter(item => item.student_name === user).map(singleStudentAssessments => {
+                        studentAssessments.filter(item => item.student_name === `${user.firstname} ${user.lastname}`).map(singleStudentAssessments => {
                             // assessment not taken yet
+                            
                             if (singleStudentAssessments.grade_status !== "assessment not taken yet") {
                                 return (
                                     <div key={singleStudentAssessments.id}>

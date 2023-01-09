@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :index]
+rescue_from ActiveRecord::RecordInvalid, with: :rescue_from_record_invalid
   def index
     users = User.all
     render json: users
@@ -7,14 +8,9 @@ class UsersController < ApplicationController
 
   def create
     user = User.create!(user_params)
-    if user.valid?
-      # no need to create session 
-      session[:user_id] = user.id
-      render json: user, status: :created
-    else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-    end
+    render json: user, status: :created
   end
+  
 # show method get /me
   def show
     user = User.find_by(id: session[:user_id])
@@ -37,5 +33,9 @@ class UsersController < ApplicationController
   private
   def user_params
     params.permit(:email, :password, :first_name, :last_name)
+  end
+
+  def rescue_from_record_invalid(invalid)
+    render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
   end
 end

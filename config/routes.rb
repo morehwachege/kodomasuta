@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   patch '/signup/:id', to: 'users#update'
   get '/me', to: 'users#show'
   get '/users', to: 'users#index'
+  post "students/get-student", to: "students#get_student"
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
-    skip_before_action :authorized, only: :index 
+    skip_before_action :authorized, only: [:create, :index, :update, :show, :get_student]
+rescue_from ActiveRecord::RecordInvalid, with: :rescue_from_record_invalid
     def index
         students = Student.all
         render json: students
@@ -7,11 +8,12 @@ class StudentsController < ApplicationController
 
     def show
       student = Student.find_by(id: params[:id])
-      if student
-        render json: student
-      else
-        render json: { error: "Student not found" }, status: :not_found
-      end
+      render json: student, status: :ok
+    end
+
+    def get_student
+      student = Student.find_by(email: params[:email])
+      render json: student, status: :ok
     end
 
     def create
@@ -43,5 +45,9 @@ class StudentsController < ApplicationController
 
     def student_params
       params.permit(:firstname, :lastname, :email)
+    end
+
+    def rescue_from_record_invalid invalid
+      render json: { error: invalid.message }, status: :bad_request
     end
 end
